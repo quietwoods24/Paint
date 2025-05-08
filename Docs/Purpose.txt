@@ -1,1 +1,3 @@
-﻿The program is designed to simply and quickly create a vector image by adding, deleting, searching and selecting shapes, scaling them, moving them, changing the color of the stroke and fill, and changing the thickness of the stroke. 
+Програма призначена для спрощеного швидкого створення векторного зображення за 
+допомогою додавання, видалення, пошуку та обирання фігур, їх масштабування, 
+переміщення, зміни кольору обведення та заливки, зміни товщини обведення. 
