@@ -12,7 +12,7 @@ namespace Paint
         static public Point2D[] GenerateRandomShape(int n, double r, double phi = -1, double x = -1, double y = -1, bool regular = false)
         {
             // This is a test code, here without checking n, r, ...
-
+			// 
             // https://learn.microsoft.com/en-us/dotnet/api/system.random.next
             // https://learn.microsoft.com/en-us/dotnet/api/system.random.nextdouble  [0; 1)
             Random rnd = new Random();
