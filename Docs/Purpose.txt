@@ -1,1 +1,0 @@
-﻿The program is designed to simply and quickly create a vector image by adding, deleting, searching and selecting shapes, scaling them, moving them, changing the color of the stroke and fill, and changing the thickness of the stroke. 
