@@ -18,12 +18,6 @@ namespace Paint
             this.AcceptButton = null;
         }
 
-        private void Log(string message)
-        {
-            if (message == null)
-                return;
-            // https://stackoverflow.com/questions/485196/autoscrolling-a-listbox-under-a-certain-situation
-        }
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
@@ -39,7 +33,6 @@ namespace Paint
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     var image = new Image(0, 0, 50, 50);
-                    Log("Open: " + openFileDialog.FileName);
                     image.Load(openFileDialog.FileName);
                     CurrImage = image;
                     panelDraw.Refresh();
@@ -58,7 +51,6 @@ namespace Paint
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Log("Save: " + saveFileDialog.FileName);
                     CurrImage.Save(saveFileDialog.FileName);
                 }
             }
@@ -68,9 +60,6 @@ namespace Paint
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             CurrImage?.KeyDown(sender, e, checkBoxInsideImage.Checked);
-
-            Log(CurrImage?.SelectedShape?.ToString());
-            Log("Indexer:" + CurrImage?.SelectedShape?[0]?.ToString());
 
             // Force redraw currImage
             panelDraw.Refresh();
@@ -138,7 +127,6 @@ namespace Paint
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     var image = new Image(0, 0, 50, 50);
-                    Log("Open: " + openFileDialog.FileName);
                     image.Load(openFileDialog.FileName);
                     CurrImage = image;
                     panelDraw.Refresh();
@@ -156,7 +144,6 @@ namespace Paint
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Log("Save: " + saveFileDialog.FileName);
                     CurrImage.Save(saveFileDialog.FileName);
                 }
             }
@@ -183,7 +170,6 @@ namespace Paint
                         {
                             if (saveFileDialog.ShowDialog() == DialogResult.OK)
                             {
-                                Log("Save: " + saveFileDialog.FileName);
                                 CurrImage.Save(saveFileDialog.FileName);
                             }
                         }
@@ -323,23 +309,7 @@ namespace Paint
 
         private void button_Reg_Triangle_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(3, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddTriangle();
             panelDraw.Refresh();
             panelDraw.Focus();
         }
@@ -347,24 +317,7 @@ namespace Paint
 
         private void button_Reg_Pentagon_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(5, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddPentagon();
             panelDraw.Refresh();
             panelDraw.Focus();
         }
@@ -372,24 +325,7 @@ namespace Paint
 
         private void button_Reg_Hexagon_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(6, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddHexagon();
             panelDraw.Refresh();
             panelDraw.Focus();
         }
@@ -397,24 +333,7 @@ namespace Paint
 
         private void button_Square_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(4, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddSquare();
             panelDraw.Refresh();
             panelDraw.Focus();
         }
@@ -422,51 +341,24 @@ namespace Paint
 
         private void button_Rectangle_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width / 2;
-            int h = (int)CurrImage.Height / 2;
-
-            Random rnd = new Random();
-
-            var rectangle = new RectangleMy(rnd.Next(w), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            rectangle.RotationAngle = phi;
-            rectangle.StrokeColor = strokeColor;
-            rectangle.FillColor = fillColor;
-            rectangle.StrokeWidth = strokeWidth;
-            CurrImage.Add(rectangle);
+            AddRectangle();
             panelDraw.Refresh();
             panelDraw.Focus();
         }
-
 
         private void button_Circle_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int w = (int)CurrImage.Width / 2;
-            int h = (int)CurrImage.Height / 2;
-
-            Random rnd = new Random();
-
-            var circle = new Circle(rnd.Next(w), rnd.Next(h), rnd.Next(w));
-            circle.StrokeColor = strokeColor;
-            circle.FillColor = fillColor;
-            circle.StrokeWidth = strokeWidth;
-            CurrImage.Add(circle);
+            AddCircle();
             panelDraw.Refresh();
             panelDraw.Focus();
         }
 
+        private void button_Line_Click(object sender, EventArgs e)
+        {
+            AddLine();
+            panelDraw.Refresh();
+            panelDraw.Focus();
+        }
 
         private void numericUpDownAngle_ValueChanged(object sender, EventArgs e)
         {
@@ -481,44 +373,8 @@ namespace Paint
                 }
             }
 
-        }
-
-
-        private void button_Line_Click(object sender, EventArgs e)
-        {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add line you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width / 2;
-            int h = (int)CurrImage.Height / 2;
-
-            Random rnd = new Random();
-
-            var line = new Line(rnd.Next(h), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            line.RotationAngle = phi;
-            line.StrokeColor = strokeColor;
-            line.FillColor = fillColor;
-            line.StrokeWidth = strokeWidth;
-            CurrImage.Add(line);
-            panelDraw.Refresh();
-            panelDraw.Focus();
-        }
-
-
-        private void numericUpDownImgAngle_ValueChanged(object sender, EventArgs e)
-        {
-            int phi = (int)numericUpDownImgAngle.Value;
-
-            if (CurrImage != null)
-            {
-                CurrImage.ImgRotationAngle = phi;                
-            }
-            panelDraw.Refresh();
-        }
+        }     
+        
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
@@ -540,159 +396,43 @@ namespace Paint
 
         private void toolStripMenuItemTriangle_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(3, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddTriangle();
             panelDraw.Refresh();
         }
 
         private void toolStripMenuItemPentagon_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(5, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddPentagon();
             panelDraw.Refresh();
         }
 
         private void toolStripMenuItemHexagon_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(6, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddHexagon();
             panelDraw.Refresh();
         }
 
         private void toolStripMenuItemSquare_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width;
-            int h = (int)CurrImage.Height;
-
-            Random rnd = new Random();
-
-            var regularPolygon = new RegularPolygon(4, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.RotationAngle = phi;
-            regularPolygon.StrokeColor = strokeColor;
-            regularPolygon.FillColor = fillColor;
-            regularPolygon.StrokeWidth = strokeWidth;
-            CurrImage.Add(regularPolygon);
+            AddSquare();
             panelDraw.Refresh();
         }
 
         private void toolStripMenuItemRectangle_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width / 2;
-            int h = (int)CurrImage.Height / 2;
-
-            Random rnd = new Random();
-
-            var rectangle = new RectangleMy(rnd.Next(w), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            rectangle.RotationAngle = phi;
-            rectangle.StrokeColor = strokeColor;
-            rectangle.FillColor = fillColor;
-            rectangle.StrokeWidth = strokeWidth;
-            CurrImage.Add(rectangle);
+            AddRectangle();
             panelDraw.Refresh();
         }
 
         private void toolStripMenuItemCircle_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
-                return;
-            }
-
-            int w = (int)CurrImage.Width / 2;
-            int h = (int)CurrImage.Height / 2;
-
-            Random rnd = new Random();
-
-            var circle = new Circle(rnd.Next(w), rnd.Next(h), rnd.Next(w));
-            circle.StrokeColor = strokeColor;
-            circle.FillColor = fillColor;
-            circle.StrokeWidth = strokeWidth;
-            CurrImage.Add(circle);
+            AddCircle();
             panelDraw.Refresh();
         }
 
         private void ToolStripMenuItemline_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
-            {
-                _ = MessageBox.Show("There is no image. To add line you must firstly create image.");
-                return;
-            }
-
-            int phi = (int)numericUpDownAngle.Value;
-            int w = (int)CurrImage.Width / 2;
-            int h = (int)CurrImage.Height / 2;
-
-            Random rnd = new Random();
-
-            var line = new Line(rnd.Next(h), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            line.RotationAngle = phi;
-            line.StrokeColor = strokeColor;
-            line.FillColor = fillColor;
-            line.StrokeWidth = strokeWidth;
-            CurrImage.Add(line);
+            AddLine();
             panelDraw.Refresh();
         }
 
@@ -710,6 +450,131 @@ namespace Paint
         private void numericUpDownImgAngle_Click(object sender, EventArgs e)
         {
             panelDraw.Focus();
+        }
+
+        private void AddTriangle()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
+                return;
+            }
+            int phi = (int)numericUpDownAngle.Value;
+
+            var regularPolygon = new RegularPolygon(3, 40, 0, 60, 60);
+            regularPolygon.RotationAngle = phi;
+            regularPolygon.StrokeColor = strokeColor;
+            regularPolygon.FillColor = fillColor;
+            regularPolygon.StrokeWidth = strokeWidth;
+            CurrImage.Add(regularPolygon);
+        }
+
+        private void AddPentagon()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
+                return;
+            }
+
+            int phi = (int)numericUpDownAngle.Value;
+
+            var regularPolygon = new RegularPolygon(5, 40, 0, 60, 60);
+            regularPolygon.RotationAngle = phi;
+            regularPolygon.StrokeColor = strokeColor;
+            regularPolygon.FillColor = fillColor;
+            regularPolygon.StrokeWidth = strokeWidth;
+            CurrImage.Add(regularPolygon);
+        }
+
+        private void AddHexagon()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
+                return;
+            }
+
+            int phi = (int)numericUpDownAngle.Value;
+
+            var regularPolygon = new RegularPolygon(6, 40, 0, 60, 60);
+            regularPolygon.RotationAngle = phi;
+            regularPolygon.StrokeColor = strokeColor;
+            regularPolygon.FillColor = fillColor;
+            regularPolygon.StrokeWidth = strokeWidth;
+            CurrImage.Add(regularPolygon);
+        }
+
+        private void AddSquare()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
+                return;
+            }
+
+            int phi = (int)numericUpDownAngle.Value;
+
+            Random rnd = new Random();
+
+            var regularPolygon = new RegularPolygon(4, 40, 0, 60, 60);
+            regularPolygon.RotationAngle = phi;
+            regularPolygon.StrokeColor = strokeColor;
+            regularPolygon.FillColor = fillColor;
+            regularPolygon.StrokeWidth = strokeWidth;
+            CurrImage.Add(regularPolygon);
+        }
+
+        private void AddRectangle()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
+                return;
+            }
+
+            int phi = (int)numericUpDownAngle.Value;
+
+            var rectangle = new RectangleMy(60, 60, 100, 200);
+            rectangle.RotationAngle = phi;
+            rectangle.StrokeColor = strokeColor;
+            rectangle.FillColor = fillColor;
+            rectangle.StrokeWidth = strokeWidth;
+            CurrImage.Add(rectangle);
+        }
+
+        private void AddCircle()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add figure you must firstly create image.");
+                return;
+            }
+
+            var circle = new Circle(40, 60, 60);
+            circle.StrokeColor = strokeColor;
+            circle.FillColor = fillColor;
+            circle.StrokeWidth = strokeWidth;
+            CurrImage.Add(circle);
+        }
+
+        private void AddLine()
+        {
+            if (CurrImage == null)
+            {
+                _ = MessageBox.Show("There is no image. To add line you must firstly create image.");
+                return;
+            }
+
+            int w = (int)CurrImage.Width / 2;
+
+            Random rnd = new Random();
+
+            var line = new Line(200, 200, rnd.Next(w), rnd.Next(w));
+            line.StrokeColor = strokeColor;
+            line.FillColor = fillColor;
+            line.StrokeWidth = strokeWidth;
+            CurrImage.Add(line);
         }
     }
 }

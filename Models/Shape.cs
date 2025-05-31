@@ -47,7 +47,7 @@ namespace Paint
 
 
         public abstract void Move(double xOffset, double yOffset);
-        public abstract void Zoom(double zoomFactor, double zFW = 1, double zFH = 1);
+        public abstract void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false);
         public abstract void Draw(PaintEventArgs e);
 
 

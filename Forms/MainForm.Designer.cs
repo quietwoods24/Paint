@@ -39,7 +39,6 @@ namespace Paint
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
             this.panelControls = new System.Windows.Forms.Panel();
             this.groupBoxShape = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.button_Line = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownAngle = new System.Windows.Forms.NumericUpDown();
@@ -115,7 +114,6 @@ namespace Paint
             this.panel2 = new System.Windows.Forms.Panel();
             this.HelpButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.numericUpDownImgAngle = new System.Windows.Forms.NumericUpDown();
             this.panelControls.SuspendLayout();
             this.groupBoxShape.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAngle)).BeginInit();
@@ -123,7 +121,6 @@ namespace Paint
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImgAngle)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControls
@@ -145,8 +142,6 @@ namespace Paint
             // 
             this.groupBoxShape.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxShape.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBoxShape.Controls.Add(this.label5);
-            this.groupBoxShape.Controls.Add(this.numericUpDownImgAngle);
             this.groupBoxShape.Controls.Add(this.button_Line);
             this.groupBoxShape.Controls.Add(this.label4);
             this.groupBoxShape.Controls.Add(this.numericUpDownAngle);
@@ -165,16 +160,6 @@ namespace Paint
             this.groupBoxShape.TabStop = false;
             this.groupBoxShape.Text = "Add shapes";
             this.groupBoxShape.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(56, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Image rotation angle";
-            this.label5.Visible = false;
             // 
             // button_Line
             // 
@@ -235,7 +220,7 @@ namespace Paint
             this.checkBoxInsideImage.AutoSize = true;
             this.checkBoxInsideImage.Checked = true;
             this.checkBoxInsideImage.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxInsideImage.Location = new System.Drawing.Point(7, 182);
+            this.checkBoxInsideImage.Location = new System.Drawing.Point(6, 182);
             this.checkBoxInsideImage.Name = "checkBoxInsideImage";
             this.checkBoxInsideImage.Size = new System.Drawing.Size(151, 17);
             this.checkBoxInsideImage.TabIndex = 15;
@@ -815,56 +800,56 @@ namespace Paint
             // toolStripMenuItemTriangle
             // 
             this.toolStripMenuItemTriangle.Name = "toolStripMenuItemTriangle";
-            this.toolStripMenuItemTriangle.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemTriangle.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemTriangle.Text = "&Add triangle";
             this.toolStripMenuItemTriangle.Click += new System.EventHandler(this.toolStripMenuItemTriangle_Click);
             // 
             // toolStripMenuItemPentagon
             // 
             this.toolStripMenuItemPentagon.Name = "toolStripMenuItemPentagon";
-            this.toolStripMenuItemPentagon.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemPentagon.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPentagon.Text = "&Add pentagon";
             this.toolStripMenuItemPentagon.Click += new System.EventHandler(this.toolStripMenuItemPentagon_Click);
             // 
             // toolStripMenuItemHexagon
             // 
             this.toolStripMenuItemHexagon.Name = "toolStripMenuItemHexagon";
-            this.toolStripMenuItemHexagon.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemHexagon.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemHexagon.Text = "&Add hexagon";
             this.toolStripMenuItemHexagon.Click += new System.EventHandler(this.toolStripMenuItemHexagon_Click);
             // 
             // toolStripMenuItemSquare
             // 
             this.toolStripMenuItemSquare.Name = "toolStripMenuItemSquare";
-            this.toolStripMenuItemSquare.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemSquare.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemSquare.Text = "&Add square";
             this.toolStripMenuItemSquare.Click += new System.EventHandler(this.toolStripMenuItemSquare_Click);
             // 
             // toolStripMenuItemRectangle
             // 
             this.toolStripMenuItemRectangle.Name = "toolStripMenuItemRectangle";
-            this.toolStripMenuItemRectangle.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemRectangle.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemRectangle.Text = "&Add rectangle";
             this.toolStripMenuItemRectangle.Click += new System.EventHandler(this.toolStripMenuItemRectangle_Click);
             // 
             // toolStripMenuItemCircle
             // 
             this.toolStripMenuItemCircle.Name = "toolStripMenuItemCircle";
-            this.toolStripMenuItemCircle.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemCircle.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemCircle.Text = "&Add circle";
             this.toolStripMenuItemCircle.Click += new System.EventHandler(this.toolStripMenuItemCircle_Click);
             // 
             // ToolStripMenuItemline
             // 
             this.ToolStripMenuItemline.Name = "ToolStripMenuItemline";
-            this.ToolStripMenuItemline.Size = new System.Drawing.Size(142, 22);
+            this.ToolStripMenuItemline.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemline.Text = "&Add line";
             this.ToolStripMenuItemline.Click += new System.EventHandler(this.ToolStripMenuItemline_Click);
             // 
             // toolStripMenuItemDelete
             // 
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemDelete.Text = "&Delete shape";
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
@@ -994,30 +979,6 @@ namespace Paint
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // numericUpDownImgAngle
-            // 
-            this.numericUpDownImgAngle.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownImgAngle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(62)))), ((int)(((byte)(75)))));
-            this.numericUpDownImgAngle.InterceptArrowKeys = false;
-            this.numericUpDownImgAngle.Location = new System.Drawing.Point(7, 151);
-            this.numericUpDownImgAngle.Maximum = new decimal(new int[] {
-            360,
-            0,
-            0,
-            0});
-            this.numericUpDownImgAngle.Minimum = new decimal(new int[] {
-            360,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownImgAngle.Name = "numericUpDownImgAngle";
-            this.numericUpDownImgAngle.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDownImgAngle.TabIndex = 18;
-            this.numericUpDownImgAngle.Tag = "Rotation angle";
-            this.numericUpDownImgAngle.Visible = false;
-            this.numericUpDownImgAngle.ValueChanged += new System.EventHandler(this.numericUpDownImgAngle_ValueChanged);
-            this.numericUpDownImgAngle.Click += new System.EventHandler(this.numericUpDownImgAngle_Click);
-            // 
             // MainForm
             // 
             this.AcceptButton = this.buttonNew;
@@ -1049,7 +1010,6 @@ namespace Paint
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImgAngle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1124,7 +1084,6 @@ namespace Paint
         private System.Windows.Forms.NumericUpDown numericUpDownAngle;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_Line;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -1135,7 +1094,6 @@ namespace Paint
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRectangle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCircle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
-        private System.Windows.Forms.NumericUpDown numericUpDownImgAngle;
     }
 }
 

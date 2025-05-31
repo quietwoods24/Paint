@@ -76,7 +76,7 @@ namespace Paint
             RecountPoints();
         }
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
         {
             if (zoomFactor <= 0)
             {
@@ -84,8 +84,12 @@ namespace Paint
                 Console.WriteLine(errorMessage);
                 return;
             }
-
-            diameter *= zoomFactor;
+            if (ZoomWholeImg) {
+                x *= zoomFactor;
+                y *= zoomFactor;
+            }
+            else
+                diameter *= zoomFactor;
 
             RecountPoints();
         }

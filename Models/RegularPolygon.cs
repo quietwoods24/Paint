@@ -129,7 +129,7 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
         {
             if (zoomFactor <= 0)
             {
@@ -139,7 +139,16 @@ namespace Paint
                 return;
             }
 
-            r *= zoomFactor;
+            if (!ZoomWholeImg)
+            {
+                r *= zoomFactor;
+            }
+            else {
+                x *= zoomFactor;
+                y *= zoomFactor;
+                r *= zoomFactor;
+            }
+            
 
             RecountPoints();
         }

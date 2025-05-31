@@ -56,7 +56,6 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Circle.cs" />
-    <Compile Include="Models\FilledPolygon.cs" />
     <Compile Include="Forms\Help.cs">
       <SubType>Form</SubType>
     </Compile>

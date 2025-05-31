@@ -85,7 +85,7 @@ namespace Paint
             RecountPoints();
         }
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
         {
             if (zoomFactor <= 0)
             {
@@ -95,16 +95,27 @@ namespace Paint
                 return;
             }
 
-            if (zoomFactor != 1 && zFW == 1 && zFH == 1) { 
-                w *= zoomFactor;
-                h *= zoomFactor;
+            if (!ZoomWholeImg)
+            {
+                if (zoomFactor != 1 && zFW == 1 && zFH == 1)
+                {
+                    w *= zoomFactor;
+                    h *= zoomFactor;
+                }
+                else
+                {
+                    w *= zFW;
+                    h *= zFH;
+                }
             }
             else
             {
-                w *= zFW;
-                h *= zFH;
+                x *= zoomFactor;
+                y *= zoomFactor;
+                w *= zoomFactor;
+                h *= zoomFactor;
             }
-
+            
             RecountPoints();
         }
 

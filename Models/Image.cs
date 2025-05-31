@@ -20,10 +20,9 @@ namespace Paint
         protected Pen penFrame;
         protected List<Shape> shapes;
 
-        public Color FillColor { get; set; } = Color.White;
         public float ImgRotationAngle = 0;
-        public SolidBrush SolidBrushFrame;       
-        
+        public SolidBrush SolidBrushFrame;
+
 
         public List<Shape> Find(string ShName, Color ShColStr, Color ShColZFill)
         {
@@ -75,11 +74,21 @@ namespace Paint
         [JsonIgnore]
         public bool DrawAxes { set; get; } = false;
 
+        [JsonIgnore]
+        public Color FillColor { get; set; } = Color.White;
 
         public double X { set; get; }
         public double Y { set; get; }
         public double Width { set; get; }
         public double Height { set; get; }
+
+        // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.colortranslator.fromhtml?view=net-9.0
+        // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.colortranslator.tohtml?view=net-9.0
+        public string ImgFillColorString
+        {
+            get { return ColorTranslator.ToHtml(FillColor); }
+            set {FillColor = ColorTranslator.FromHtml(value); }
+        }
 
 
         public Image(double x, double y, double width, double height)
@@ -154,7 +163,7 @@ namespace Paint
         }
 
 
-        public void Zoom(double zoomFactor)
+        public void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
         {
             if (zoomFactor <= 0)
             {
@@ -168,11 +177,11 @@ namespace Paint
             Height *= zoomFactor;
 
             foreach (Shape shape in shapes)
-                shape.Zoom(zoomFactor, 1, 1);
+                shape.Zoom(zoomFactor, zFW, zFH, ZoomWholeImg);
         }
 
 
-        public void ZoomInside(double zoomFactor, double zFW = 1, double zFH = 1)
+        public void ZoomInside(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
         {
             if (zoomFactor <= 0)
             {
@@ -183,10 +192,10 @@ namespace Paint
             }
 
             if (SelectedShape != null)
-                SelectedShape.Zoom(zoomFactor, zFW, zFH);
+                SelectedShape.Zoom(zoomFactor, zFW, zFH, ZoomWholeImg);
             else
                 foreach (Shape shape in shapes)
-                    shape.Zoom(zoomFactor, zFW, zFH);
+                    shape.Zoom(zoomFactor, zFW, zFH, ZoomWholeImg);
         }
 
 
@@ -209,15 +218,10 @@ namespace Paint
 
             // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.translatetransform?view=netframework-4.7.2
             // Changes the origin of the coordinate system from (0,0) to (X, Y)
+            e.Graphics.TranslateTransform((float)X, (float)Y);
 
-            var saveRotation = e.Graphics.Save();
-
-            e.Graphics.TranslateTransform((float)(X + Width / 2), (float)(Y + Height / 2));
-            e.Graphics.RotateTransform(ImgRotationAngle);
-            e.Graphics.TranslateTransform((float)(-Width / 2), (float)(-Height / 2));
             foreach (Shape shape in shapes)
                 shape.Draw(e);
-            e.Graphics.Restore(saveRotation);
         }
 
 
@@ -326,14 +330,14 @@ namespace Paint
                     if (insideImage)
                         ZoomInside(1.1);
                     else
-                        Zoom(1.1);
+                        Zoom(1.1, 1, 1, true);
                     break;
 
                 case 109: // "-"
                     if (insideImage)
                         ZoomInside(0.9);
                     else
-                        Zoom(0.9);
+                        Zoom(0.9, 1, 1, true);
                     break;
                 case 72: // "H"
                     if (insideImage)
@@ -418,6 +422,8 @@ namespace Paint
                         this.Y = jsonIm.Y;
                         this.Width = jsonIm.Width;
                         this.Height = jsonIm.Height;
+                        this.FillColor = jsonIm.FillColor;
+                        this.SolidBrushFrame = new SolidBrush(this.FillColor);
                     }
                     if (jsonPo != null)
                         shapes.AddRange(jsonPo);

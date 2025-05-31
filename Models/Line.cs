@@ -86,7 +86,7 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
         {
             if (zoomFactor <= 0)
             {
