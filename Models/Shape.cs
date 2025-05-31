@@ -19,24 +19,6 @@ namespace Paint
     // double, not int, because otherwise, when scaling through integer
     // rounding, errors will accumulate, we may even get 0 in X and Y.
 
-
-    //public class Point3D : PointD
-    //{
-    //    public override double X { set; get; }
-    //    public override double Y { set; get; }
-    //    public override double Z { set; get; }
-
-    //    public Point3D(double x, double y, double z)
-    //    {
-    //        X = x;
-    //        Y = y;
-    //        Z = z;
-    //    }
-
-    //    public override string ToString() =>
-    //        $"({X:0.###}, {Y:0.###}, {Z:0.###})";
-    //}
-
     public abstract class Shape
     {
         protected const double EPSILON = 1.0e-7;
@@ -60,12 +42,12 @@ namespace Paint
         public virtual Color StrokeColor { get; set; } = Color.Black;
         public virtual Color FillColor { get; set; } = Color.Transparent;
         public virtual float StrokeWidth { get; set; } = 2.0F;
+        public virtual int RotationAngle { get; set; } = 0;
+        public virtual Point2D[] Points { get; set; }
 
-        public virtual int rotationAngle { get; set; } = 0;
-        public virtual Point2D[] points { get; set; }
 
         public abstract void Move(double xOffset, double yOffset);
-        public abstract void Zoom(double zoomFactor);
+        public abstract void Zoom(double zoomFactor, double zFW = 1, double zFH = 1);
         public abstract void Draw(PaintEventArgs e);
 
 
@@ -78,8 +60,6 @@ namespace Paint
 
 
         protected abstract double Distance(PointD p1, PointD p2);
-        public abstract double GetPerimeter();
-        public abstract double GetArea();
         public abstract override string ToString();
          
 

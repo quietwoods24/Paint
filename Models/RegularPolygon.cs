@@ -29,15 +29,16 @@ namespace Paint
         // https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/ignore-properties
         // https://www.newtonsoft.com/json/help/html/PropertyJsonIgnore.htm
         [JsonIgnore]
-        public override Point2D[] points { get; set; }
+        public override Point2D[] Points { get; set; }
 
 
         public int N { get { return n; } set { n = value; RecountPoints(); } }
         public double R { get { return r; } set { r = value; RecountPoints(); } }
         public double Alpha { get { return alpha; } set { alpha = value; RecountPoints(); } }
-        public override int rotationAngle { get { return (int)rotationangle; } set { rotationangle = value; } }
+        public override int RotationAngle { get { return (int)rotationangle; } set { rotationangle = value; } }
         public double X { get { return x; } set { x = value; RecountPoints(); } }
         public double Y { get { return y; } set { y = value; RecountPoints(); } }
+
 
         public override string ShapeInfo
         {
@@ -52,7 +53,6 @@ namespace Paint
         }
 
 
-
         // https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/immutability
         // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
         [JsonConstructor]
@@ -64,30 +64,29 @@ namespace Paint
         }
 
 
-        // To call the basic constructor (Shape2D) with non-empty points
+        // To call the basic constructor (Shape2D) with non-empty Points
         protected static Point2D[] RecountPoints(int n, double r, double phi, double x, double y)
         {
             if (n < 3 || r < 0)
                 return new Point2D[0];
 
-            var points = new Point2D[n];
+            var Points = new Point2D[n];
             for (int i = 0; i < n; i++)
             {
                 double angle = Math.PI * phi / 180.0 + 2 * Math.PI * i / n;
-                points[i] = new Point2D(
+                Points[i] = new Point2D(
                     x + r * Math.Cos(angle),
                     y + r * Math.Sin(angle));
             }
 
-            return points;
-
+            return Points;
         }
+
 
         // For internal use only
         protected void RecountPoints()
         {
-            points = RecountPoints(n, r, rotationangle, x, y);
-
+            Points = RecountPoints(n, r, rotationangle, x, y);
         }
 
 
@@ -130,7 +129,7 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
         {
             if (zoomFactor <= 0)
             {
@@ -141,30 +140,8 @@ namespace Paint
             }
 
             r *= zoomFactor;
-            x *= zoomFactor;
-            y *= zoomFactor;
 
             RecountPoints();
-        }
-
-
-        public override double GetPerimeter()
-        {
-            if (n < EPSILON)
-                return -1;
-
-            // According to the formula, r is the radius of the described circle
-            return 2.0 * n * Math.Sin(Math.PI / n) * r;
-        }
-
-
-        public override double GetArea()
-        {
-            if (n < EPSILON)
-                return -1;
-
-            // According to the formula, r is the radius of the described circle
-            return n / 2.0 * Math.Sin(2 * Math.PI / n) * r * r;
         }
 
 
@@ -178,7 +155,6 @@ namespace Paint
                 $"Side count: {n}",
                 $"Radius: {r:0.###}",
                 $"Start angle: {alpha:0.###}",
-                $"Side count: {n}",
                 $"Center: ({x:0.###}, {x:0.###})",
                 $"Stroke color: {StrokeColor}",
                 $"Fill color: {FillColor}",

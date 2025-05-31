@@ -49,16 +49,16 @@ namespace Paint
 
         protected static Point2D[] RecountPoints(double x1, double y1, double x2, double y2)
         {
-            var points = new Point2D[2];
-            points[0] = new Point2D(x1, y1);
-            points[1] = new Point2D(x2, y2);
+            var Points = new Point2D[2];
+            Points[0] = new Point2D(x1, y1);
+            Points[1] = new Point2D(x2, y2);
 
-            return points;
+            return Points;
         }
 
         protected void RecountPoints()
         {
-            points = RecountPoints(x1, y1, x2, y2);
+            Points = RecountPoints(x1, y1, x2, y2);
         }
 
 
@@ -86,7 +86,7 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
         {
             if (zoomFactor <= 0)
             {
@@ -108,7 +108,7 @@ namespace Paint
         public override string ToString()
         {
             List<string> strPoints = new List<string>();
-            foreach (Point2D point in points)
+            foreach (Point2D point in Points)
             {
                 strPoints.Add(point.ToString());
             }

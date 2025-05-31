@@ -231,6 +231,7 @@ namespace Paint
                     CurrImage.selectedShape.StrokeWidth = strokeWidth;
 
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -279,9 +280,10 @@ namespace Paint
         {
             if (CurrImage != null) { 
                 CurrImage.FillColor = ((Button)sender).BackColor;
-                CurrImage.solidBrushFrame = new SolidBrush(((Button)sender).BackColor);
+                CurrImage.SolidBrushFrame = new SolidBrush(((Button)sender).BackColor);
             }
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -315,6 +317,7 @@ namespace Paint
             button_CurrFillColor.BackColor = fillColor;
 
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -332,12 +335,13 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(3, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
             CurrImage.Add(regularPolygon);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -356,12 +360,13 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(5, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
             CurrImage.Add(regularPolygon);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -380,12 +385,13 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(6, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
             CurrImage.Add(regularPolygon);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -404,12 +410,13 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(4, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
             CurrImage.Add(regularPolygon);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -428,12 +435,13 @@ namespace Paint
             Random rnd = new Random();
 
             var rectangle = new RectangleMy(rnd.Next(w), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            rectangle.rotationAngle = phi;
+            rectangle.RotationAngle = phi;
             rectangle.StrokeColor = strokeColor;
             rectangle.FillColor = fillColor;
             rectangle.StrokeWidth = strokeWidth;
             CurrImage.Add(rectangle);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -456,6 +464,7 @@ namespace Paint
             circle.StrokeWidth = strokeWidth;
             CurrImage.Add(circle);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -467,10 +476,11 @@ namespace Paint
             {
                 if (CurrImage.selectedShape != null)
                 {
-                    CurrImage.selectedShape.rotationAngle = phi;
+                    CurrImage.selectedShape.RotationAngle = phi;
                     panelDraw.Refresh();
                 }
             }
+
         }
 
 
@@ -489,12 +499,13 @@ namespace Paint
             Random rnd = new Random();
 
             var line = new Line(rnd.Next(h), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            line.rotationAngle = phi;
+            line.RotationAngle = phi;
             line.StrokeColor = strokeColor;
             line.FillColor = fillColor;
             line.StrokeWidth = strokeWidth;
             CurrImage.Add(line);
             panelDraw.Refresh();
+            panelDraw.Focus();
         }
 
 
@@ -541,7 +552,7 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(3, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
@@ -564,7 +575,7 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(5, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
@@ -587,7 +598,7 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(6, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
@@ -610,7 +621,7 @@ namespace Paint
             Random rnd = new Random();
 
             var regularPolygon = new RegularPolygon(4, rnd.Next(h / 3), 0, rnd.Next(w), rnd.Next(h));
-            regularPolygon.rotationAngle = phi;
+            regularPolygon.RotationAngle = phi;
             regularPolygon.StrokeColor = strokeColor;
             regularPolygon.FillColor = fillColor;
             regularPolygon.StrokeWidth = strokeWidth;
@@ -633,7 +644,7 @@ namespace Paint
             Random rnd = new Random();
 
             var rectangle = new RectangleMy(rnd.Next(w), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            rectangle.rotationAngle = phi;
+            rectangle.RotationAngle = phi;
             rectangle.StrokeColor = strokeColor;
             rectangle.FillColor = fillColor;
             rectangle.StrokeWidth = strokeWidth;
@@ -677,12 +688,28 @@ namespace Paint
             Random rnd = new Random();
 
             var line = new Line(rnd.Next(h), rnd.Next(h), rnd.Next(w), rnd.Next(w));
-            line.rotationAngle = phi;
+            line.RotationAngle = phi;
             line.StrokeColor = strokeColor;
             line.FillColor = fillColor;
             line.StrokeWidth = strokeWidth;
             CurrImage.Add(line);
             panelDraw.Refresh();
+        }
+
+        private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
+        {
+            CurrImage?.Remove(CurrImage.SelectedShape);
+            panelDraw.Refresh();
+        }
+
+        private void numericUpDownAngle_Click(object sender, EventArgs e)
+        {
+            panelDraw.Focus();
+        }
+
+        private void numericUpDownImgAngle_Click(object sender, EventArgs e)
+        {
+            panelDraw.Focus();
         }
     }
 }

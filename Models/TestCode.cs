@@ -12,11 +12,11 @@ namespace Paint
         static public Point2D[] GenerateRandomShape(int n, double r, double phi = -1, double x = -1, double y = -1, bool regular = false)
         {
             // This is a test code, here without checking n, r, ...
-			// 
+
             // https://learn.microsoft.com/en-us/dotnet/api/system.random.next
             // https://learn.microsoft.com/en-us/dotnet/api/system.random.nextdouble  [0; 1)
             Random rnd = new Random();
-            Point2D[] points = new Point2D[n];
+            Point2D[] Points = new Point2D[n];
 
             phi = (phi < 0) ? Math.PI * rnd.NextDouble() : phi;
             x = (x < 0) ? r * rnd.NextDouble() : x;
@@ -26,12 +26,12 @@ namespace Paint
             {
                 double angle = phi + 2 * Math.PI * i / n + (regular ? 0 : Math.PI / n * rnd.NextDouble());
                 R = regular ? R : r / 3 * rnd.NextDouble();
-                points[i] = new Point2D(
+                Points[i] = new Point2D(
                     x + R * Math.Cos(angle),
                     y + R * Math.Sin(angle));
             }
 
-            return points;
+            return Points;
         }
 
 
@@ -85,7 +85,7 @@ namespace Paint
             shape = new Polygon();
             shape = new Polygon(new Point2D(0, 0));
             shape = new Polygon(new Point2D(0, 0), new Point2D(0, 2));
-            // Error: same points
+            // Error: same Points
             shape = new Polygon(new Point2D(0, 0), new Point2D(0, 0), new Point2D(0, 3), new Point2D(4, 0));
             shape = new Polygon(new Point2D(0, 0), new Point2D(0, 3), new Point2D(0, 3), new Point2D(4, 0));
             shape = new Polygon(new Point2D(0, 0), new Point2D(0, 3), new Point2D(4, 0), new Point2D(4, 0));

@@ -13,7 +13,7 @@ namespace Paint
 {
     public class Polygon : Shape2D
     {
-        public Polygon(params Point2D[] points) : base(points)
+        public Polygon(params Point2D[] Points) : base(Points)
         {
             // Do nothing
         }

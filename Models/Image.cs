@@ -17,11 +17,13 @@ namespace Paint
     public class Image
     {
         protected const string delimeter = " | ";
-        public Color FillColor { get; set; } = Color.White;
         protected Pen penFrame;
-        public SolidBrush solidBrushFrame;
         protected List<Shape> shapes;
+
+        public Color FillColor { get; set; } = Color.White;
         public float ImgRotationAngle = 0;
+        public SolidBrush SolidBrushFrame;       
+        
 
         public List<Shape> Find(string ShName, Color ShColStr, Color ShColZFill)
         {
@@ -42,6 +44,8 @@ namespace Paint
 
 
         public Shape selectedShape = null;
+
+
         [JsonIgnore]
         public Shape SelectedShape
         {
@@ -56,7 +60,6 @@ namespace Paint
                     selectedShape.Deselect();
                     //panelDraw.Cursor = Cursors.Default;
                 }
-
                 // Assign a new shape
                 selectedShape = value;
 
@@ -68,13 +71,16 @@ namespace Paint
             get { return selectedShape; }
         }
 
+
         [JsonIgnore]
         public bool DrawAxes { set; get; } = false;
+
 
         public double X { set; get; }
         public double Y { set; get; }
         public double Width { set; get; }
         public double Height { set; get; }
+
 
         public Image(double x, double y, double width, double height)
         {
@@ -88,8 +94,9 @@ namespace Paint
             penFrame = new Pen(Color.Black, 1);
 
             // Image frame fill
-            solidBrushFrame = new SolidBrush(FillColor);
+            SolidBrushFrame = new SolidBrush(FillColor);
         }
+
 
         public void Add(Shape shape)
         {
@@ -107,13 +114,13 @@ namespace Paint
                 shapes.Add(shape);
         }
 
+
         private int GenerateId() {
             if (shapes.Count == 0)
                 return 0;
             return shapes.Select(sh => sh.Id).Max() + 1;
         }
-
-        
+                
 
         public void Remove(Shape shape)
         {
@@ -161,11 +168,11 @@ namespace Paint
             Height *= zoomFactor;
 
             foreach (Shape shape in shapes)
-                shape.Zoom(zoomFactor);
+                shape.Zoom(zoomFactor, 1, 1);
         }
 
 
-        public void ZoomInside(double zoomFactor)
+        public void ZoomInside(double zoomFactor, double zFW = 1, double zFH = 1)
         {
             if (zoomFactor <= 0)
             {
@@ -176,10 +183,10 @@ namespace Paint
             }
 
             if (SelectedShape != null)
-                SelectedShape.Zoom(zoomFactor);
+                SelectedShape.Zoom(zoomFactor, zFW, zFH);
             else
                 foreach (Shape shape in shapes)
-                    shape.Zoom(zoomFactor);
+                    shape.Zoom(zoomFactor, zFW, zFH);
         }
 
 
@@ -190,7 +197,7 @@ namespace Paint
             e.Graphics.DrawRectangle(penFrame, frame);
 
             // Fill image frame
-            e.Graphics.FillRectangle(solidBrushFrame, (int)X, (int)Y, (int)(Width), (int)(Height));
+            e.Graphics.FillRectangle(SolidBrushFrame, (int)X, (int)Y, (int)(Width), (int)(Height));
 
             // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.setclip
             // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.combinemode
@@ -328,6 +335,14 @@ namespace Paint
                     else
                         Zoom(0.9);
                     break;
+                case 72: // "H"
+                    if (insideImage)
+                        ZoomInside(1, 1, 1.1);
+                    break;
+                case 87: // "W"
+                    if (insideImage)
+                        ZoomInside(1, 1.1, 1);
+                    break;
 
                 default:
                     break;
@@ -348,11 +363,10 @@ namespace Paint
                 // https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where?view=netframework-4.8
                 // https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.cast?view=netframework-4.8
                 var polygons        = shapes.Where(s => s is Polygon       ).Cast<Polygon>();
-                var filledPolygons  = shapes.Where(s => s is FilledPolygon ).Cast<FilledPolygon>();
                 var regularPolygons = shapes.Where(s => s is RegularPolygon).Cast<RegularPolygon>();
-                var rectangles      = shapes.Where(s => s is RectangleMy).Cast<RectangleMy>();
-                var circles         = shapes.Where(s => s is Circle).Cast<Circle>();
-                var line            = shapes.Where(s => s is Line).Cast<Line>();
+                var rectangles      = shapes.Where(s => s is RectangleMy   ).Cast<RectangleMy>();
+                var circles         = shapes.Where(s => s is Circle        ).Cast<Circle>();
+                var line            = shapes.Where(s => s is Line          ).Cast<Line>();
 
 
                 // https://www.newtonsoft.com/json/help/html/Overload_Newtonsoft_Json_JsonConvert_SerializeObject.htm
@@ -361,7 +375,6 @@ namespace Paint
                 {
                     JsonConvert.SerializeObject(this),
                     JsonConvert.SerializeObject(polygons),
-                    JsonConvert.SerializeObject(filledPolygons),
                     JsonConvert.SerializeObject(regularPolygons),
                     JsonConvert.SerializeObject(rectangles),
                     JsonConvert.SerializeObject(circles),
@@ -395,11 +408,10 @@ namespace Paint
                     // https://www.newtonsoft.com/json/help/html/serializingjson.htm
                     var jsonIm = JsonConvert.DeserializeObject<Image>(lines[0]);
                     var jsonPo = JsonConvert.DeserializeObject<List<Polygon>>(lines[1]);
-                    var jsonFP = JsonConvert.DeserializeObject<List<FilledPolygon>>(lines[2]);
-                    var jsonRP = JsonConvert.DeserializeObject<List<RegularPolygon>>(lines[3]);
-                    var jsonRr = JsonConvert.DeserializeObject<List<RectangleMy>>(lines[4]);
-                    var jsonCr = JsonConvert.DeserializeObject<List<Circle>>(lines[5]);
-                    var jsonLn = JsonConvert.DeserializeObject<List<Line>>(lines[6]);
+                    var jsonRP = JsonConvert.DeserializeObject<List<RegularPolygon>>(lines[2]);
+                    var jsonRr = JsonConvert.DeserializeObject<List<RectangleMy>>(lines[3]);
+                    var jsonCr = JsonConvert.DeserializeObject<List<Circle>>(lines[4]);
+                    var jsonLn = JsonConvert.DeserializeObject<List<Line>>(lines[5]);
                     if (jsonIm != null)
                     {
                         this.X = jsonIm.X;
@@ -409,8 +421,6 @@ namespace Paint
                     }
                     if (jsonPo != null)
                         shapes.AddRange(jsonPo);
-                    if (jsonFP != null)
-                        shapes.AddRange(jsonFP);
                     if (jsonRP != null)
                         shapes.AddRange(jsonRP);
                     if (jsonRr != null)
@@ -456,6 +466,7 @@ namespace Paint
 
         [JsonIgnore]
         public double Count { get { return shapes.Count; } }
+
 
         [JsonIgnore]
         public Shape this[int index]

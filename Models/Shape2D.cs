@@ -13,7 +13,6 @@ namespace Paint
     {
         public double averageX;
         public double averageY;
-        public float currPhi = 0;
         public Shape2D()
         {
             // https://stackoverflow.com/questions/13947997/how-to-deserialize-class-without-calling-a-constructor
@@ -25,7 +24,7 @@ namespace Paint
         public Shape2D(params Point2D[] shapePoints)
         {
 
-            //// Checking for the number of points < 3
+            //// Checking for the number of Points < 3
             //if (shapePoints.Length < 3)
             //{
             //    string errorMessage = $"ERROR: Points count < 3: {shapePoints.Length}";
@@ -48,19 +47,19 @@ namespace Paint
 
             // We do not check for overlapping pages. We allow the following option
 
-            // We do not check whether all three points lie on the same line. We allow this option
+            // We do not check whether all three Points lie on the same line. We allow this option
 
-            points = new Point2D[shapePoints.Length];
+            Points = new Point2D[shapePoints.Length];
             for (int i = 0; i < shapePoints.Length; i++)
             {
-                points[i] = new Point2D(shapePoints[i].X, shapePoints[i].Y);
+                Points[i] = new Point2D(shapePoints[i].X, shapePoints[i].Y);
             }
         }
 
 
         public override void Move(double xOffset, double yOffset)
         {
-            foreach (Point2D point in points)
+            foreach (Point2D point in Points)
             {
                 point.X += xOffset;
                 point.Y += yOffset;
@@ -68,7 +67,7 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
         {
             if (zoomFactor <= 0)
             {
@@ -78,7 +77,7 @@ namespace Paint
                 return;
             }
 
-            foreach (Point2D point in points)
+            foreach (Point2D point in Points)
             {
                 point.X *= zoomFactor;
                 point.Y *= zoomFactor;
@@ -88,16 +87,16 @@ namespace Paint
 
         public override void Draw(PaintEventArgs e)
         {
-            //if (points.Length < 3)
+            //if (Points.Length < 3)
             //    return;
 
             // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.pointf
-            PointF[] shapePoints = new PointF[points.Length];
+            PointF[] shapePoints = new PointF[Points.Length];
 
-            // Copy the array of points Point2D to the array of points PointF
-            for (int i = 0; i < points.Length; i++)
+            // Copy the array of Points Point2D to the array of Points PointF
+            for (int i = 0; i < Points.Length; i++)
             {
-                shapePoints[i] = new PointF((float)points[i].X, (float)points[i].Y);
+                shapePoints[i] = new PointF((float)Points[i].X, (float)Points[i].Y);
             }
 
             // Draw a polygon stroke
@@ -121,20 +120,20 @@ namespace Paint
                 double SumX = 0;
                 double SumY = 0;
 
-                for (int i = 0; i < points.Length; i++)
+                for (int i = 0; i < Points.Length; i++)
                 {
-                    int markerX = (int)points[i].X;
-                    int markerY = (int)points[i].Y;
+                    int markerX = (int)Points[i].X;
+                    int markerY = (int)Points[i].Y;
 
-                    SumX += points[i].X;
-                    SumY += points[i].Y;
+                    SumX += Points[i].X;
+                    SumY += Points[i].Y;
 
                     e.Graphics.DrawEllipse(penSelected, markerX - markerSize, markerY - markerSize, 2 * markerSize, 2 * markerSize);
                 }
 
                 if (this is RegularPolygon) {
-                    averageX = (float)(SumX / points.Length);
-                    averageY = (float)(SumY / points.Length);
+                    averageX = (float)(SumX / Points.Length);
+                    averageY = (float)(SumY / Points.Length);
                     e.Graphics.DrawEllipse(penSelected, (float)averageX - markerSize, (float)averageY - markerSize, 2 * markerSize, 2 * markerSize);
                 }           
 
@@ -143,17 +142,15 @@ namespace Paint
 
 
         public override void MouseMoveTo(double newX, double newY)
-        {
-            
-            Move(newX + clickdX - points[0].X, newY + clickdY - points[0].Y);
+        {            
+            Move(newX + clickdX - Points[0].X, newY + clickdY - Points[0].Y);
         }
 
 
         public override void StartMouseMove(double mouseX, double mouseY)
-        {
-            
-            clickdX = points[0].X - mouseX;
-            clickdY = points[0].Y - mouseY;
+        {            
+            clickdX = Points[0].X - mouseX;
+            clickdY = Points[0].Y - mouseY;
         }
 
 
@@ -162,6 +159,7 @@ namespace Paint
             clickdX = 0;
             clickdY = 0;
         }
+
 
 
         // Returns true if the point (x, y) is on the line (px, py)---(qx,qy) +/- pixels of tolerance
@@ -202,11 +200,11 @@ namespace Paint
         // Checks if the click hit the Shape
         public override bool MouseHover(double mouseX, double mouseY)
         {
-            for (int i = 0; i < points.Length; i++)
+            for (int i = 0; i < Points.Length; i++)
                 if (PointOverLine(
                         mouseX, mouseY,
-                        points[i].X, points[i].Y,
-                        points[(i + 1) % points.Length].X, points[(i + 1) % points.Length].Y, clickTolerance)
+                        Points[i].X, Points[i].Y,
+                        Points[(i + 1) % Points.Length].X, Points[(i + 1) % Points.Length].Y, clickTolerance)
                     )
                     return true;
 
@@ -226,62 +224,16 @@ namespace Paint
         }
 
 
-        protected double TriangleArea(double a, double b, double c)
-        {
-            if ((a < b + c) && (b < a + c) && (c < a + b))
-            {
-                // Half-perimeter
-                double p = (a + b + c) / 2;
-                // Geron's formula
-                double S = Math.Sqrt(p * (p - a)
-                                       * (p - b)
-                                       * (p - c));
-                return S;
-            }
-            else
-            {
-                string errorMessage = $"ERROR: A triangle cannot be constructed: {a}, {b}, {c}.";
-                Console.WriteLine(errorMessage);
-                //throw new Exception(errorMessage);
-                return -1;
-            }
-        }
-
         protected override double Distance(PointD p1, PointD p2)
         {
             return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2) + Math.Pow(p1.Z - p2.Z, 2));
         }
 
-        public override double GetPerimeter()
-        {
-            double result = 0;
-            for (int i = 0; i < points.Length; i++)
-            {
-                // (i+1) % N - for the case of a loop => the first point is connected to the last
-                result += Distance(points[i], points[(i + 1) % points.Length]);
-            }
-            return result;
-        }
-
-        // https://en.wikipedia.org/wiki/Shoelace_formula#Other_formulas_2
-        public override double GetArea()
-        {
-            double result = 0;
-            int n_1 = points.Length - 1;
-            for (int i = 0; i < points.Length; i++)
-            {
-                // Calculate separately for i=0 and i=n
-                int ip1 = (i == n_1) ? 0 : i + 1; // ip1 = i plus  1 = i + 1
-                int im1 = (i == 0) ? n_1 : i - 1; // im1 = i minus 1 = i - 1
-                result += points[i].X * (points[ip1].Y - points[im1].Y);
-            }
-            return 0.5 * Math.Abs(result);
-        }
 
         public override string ToString()
         {
             List<string> strPoints = new List<string>();
-            foreach (Point2D point in points)
+            foreach (Point2D point in Points)
             {
                 strPoints.Add(point.ToString());
             }
@@ -290,46 +242,41 @@ namespace Paint
             {
                 $"{GetType().Name}",
                 $"Points: {String.Join(", ", strPoints)}",
-                $"Area: {GetArea():0.###}",
-                $"Perimeter: {GetPerimeter():0.###}",
                 $"Stroke color: {StrokeColor}",
                 $"Fill color: {FillColor}",
                 $"Stroke width: {StrokeWidth:0.###}"
-            }; //,
-            //    $"Stroke color: {StrokeColor}",
-            //    $"Fill color: {FillColor}",
-            //    $"Stroke width: {StrokeWidth:0.###}"
-            //};
+            }; 
             return String.Join(delimeter, fields);
         }
+
 
         // Indexer 
         public override PointD this[int index]
         {
             set
             {
-                if (0 <= index && index < points.Length)
+                if (0 <= index && index < Points.Length)
                 {
-                    points[index].X = value.X;
-                    points[index].Y = value.Y;
-                    points[index].Z = value.Z;
+                    Points[index].X = value.X;
+                    Points[index].Y = value.Y;
+                    Points[index].Z = value.Z;
                 }
                 else
                 {
-                    string errorMessage = $"ERROR: Index must be in range [0; {points.Length}): {index}";
+                    string errorMessage = $"ERROR: Index must be in range [0; {Points.Length}): {index}";
                     Console.WriteLine(errorMessage);
                     // throw new ArgumentOutOfRangeException(errorMessage);
                 }
             }
             get
             {
-                if (0 <= index && index < points.Length)
+                if (0 <= index && index < Points.Length)
                 {
-                    return points[index];
+                    return Points[index];
                 }
                 else
                 {
-                    string errorMessage = $"ERROR: Index must be in range [0; {points.Length}): {index}";
+                    string errorMessage = $"ERROR: Index must be in range [0; {Points.Length}): {index}";
                     Console.WriteLine(errorMessage);
                     // throw new ArgumentOutOfRangeException(errorMessage);
                     return null; // new Point2D(0, 0);

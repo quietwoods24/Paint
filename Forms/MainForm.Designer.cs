@@ -40,7 +40,6 @@ namespace Paint
             this.panelControls = new System.Windows.Forms.Panel();
             this.groupBoxShape = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDownImgAngle = new System.Windows.Forms.NumericUpDown();
             this.button_Line = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownAngle = new System.Windows.Forms.NumericUpDown();
@@ -103,6 +102,7 @@ namespace Paint
             this.toolStripMenuItemRectangle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCircle = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemline = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,14 +115,15 @@ namespace Paint
             this.panel2 = new System.Windows.Forms.Panel();
             this.HelpButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.numericUpDownImgAngle = new System.Windows.Forms.NumericUpDown();
             this.panelControls.SuspendLayout();
             this.groupBoxShape.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImgAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAngle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImgAngle)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControls
@@ -173,28 +174,7 @@ namespace Paint
             this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "Image rotation angle";
-            // 
-            // numericUpDownImgAngle
-            // 
-            this.numericUpDownImgAngle.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownImgAngle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(62)))), ((int)(((byte)(75)))));
-            this.numericUpDownImgAngle.InterceptArrowKeys = false;
-            this.numericUpDownImgAngle.Location = new System.Drawing.Point(7, 151);
-            this.numericUpDownImgAngle.Maximum = new decimal(new int[] {
-            360,
-            0,
-            0,
-            0});
-            this.numericUpDownImgAngle.Minimum = new decimal(new int[] {
-            360,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownImgAngle.Name = "numericUpDownImgAngle";
-            this.numericUpDownImgAngle.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDownImgAngle.TabIndex = 18;
-            this.numericUpDownImgAngle.Tag = "Rotation angle";
-            this.numericUpDownImgAngle.ValueChanged += new System.EventHandler(this.numericUpDownImgAngle_ValueChanged);
+            this.label5.Visible = false;
             // 
             // button_Line
             // 
@@ -236,6 +216,7 @@ namespace Paint
             this.numericUpDownAngle.TabIndex = 6;
             this.numericUpDownAngle.Tag = "Rotation angle";
             this.numericUpDownAngle.ValueChanged += new System.EventHandler(this.numericUpDownAngle_ValueChanged);
+            this.numericUpDownAngle.Click += new System.EventHandler(this.numericUpDownAngle_Click);
             // 
             // button_Circle
             // 
@@ -825,7 +806,8 @@ namespace Paint
             this.toolStripMenuItemSquare,
             this.toolStripMenuItemRectangle,
             this.toolStripMenuItemCircle,
-            this.ToolStripMenuItemline});
+            this.ToolStripMenuItemline,
+            this.toolStripMenuItemDelete});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.editToolStripMenuItem.Text = "&Edit";
@@ -878,6 +860,13 @@ namespace Paint
             this.ToolStripMenuItemline.Size = new System.Drawing.Size(142, 22);
             this.ToolStripMenuItemline.Text = "&Add line";
             this.ToolStripMenuItemline.Click += new System.EventHandler(this.ToolStripMenuItemline_Click);
+            // 
+            // toolStripMenuItemDelete
+            // 
+            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemDelete.Text = "&Delete shape";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -985,23 +974,49 @@ namespace Paint
             // 
             // HelpButton
             // 
-            this.HelpButton.Location = new System.Drawing.Point(258, 31);
+            this.HelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HelpButton.BackgroundImage")));
+            this.HelpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.HelpButton.Location = new System.Drawing.Point(243, 31);
             this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(42, 35);
+            this.HelpButton.Size = new System.Drawing.Size(35, 35);
             this.HelpButton.TabIndex = 8;
-            this.HelpButton.Text = "Help";
             this.HelpButton.UseVisualStyleBackColor = true;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
             // SearchButton
             // 
+            this.SearchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchButton.BackgroundImage")));
+            this.SearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SearchButton.Location = new System.Drawing.Point(202, 31);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(50, 35);
+            this.SearchButton.Size = new System.Drawing.Size(35, 35);
             this.SearchButton.TabIndex = 7;
-            this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // numericUpDownImgAngle
+            // 
+            this.numericUpDownImgAngle.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDownImgAngle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(62)))), ((int)(((byte)(75)))));
+            this.numericUpDownImgAngle.InterceptArrowKeys = false;
+            this.numericUpDownImgAngle.Location = new System.Drawing.Point(7, 151);
+            this.numericUpDownImgAngle.Maximum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            0});
+            this.numericUpDownImgAngle.Minimum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownImgAngle.Name = "numericUpDownImgAngle";
+            this.numericUpDownImgAngle.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownImgAngle.TabIndex = 18;
+            this.numericUpDownImgAngle.Tag = "Rotation angle";
+            this.numericUpDownImgAngle.Visible = false;
+            this.numericUpDownImgAngle.ValueChanged += new System.EventHandler(this.numericUpDownImgAngle_ValueChanged);
+            this.numericUpDownImgAngle.Click += new System.EventHandler(this.numericUpDownImgAngle_Click);
             // 
             // MainForm
             // 
@@ -1026,7 +1041,6 @@ namespace Paint
             this.panelControls.ResumeLayout(false);
             this.groupBoxShape.ResumeLayout(false);
             this.groupBoxShape.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImgAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAngle)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1035,6 +1049,7 @@ namespace Paint
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownImgAngle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1110,7 +1125,6 @@ namespace Paint
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_Line;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDownImgAngle;
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -1120,6 +1134,8 @@ namespace Paint
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSquare;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRectangle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCircle;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
+        private System.Windows.Forms.NumericUpDown numericUpDownImgAngle;
     }
 }
 

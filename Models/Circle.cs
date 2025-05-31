@@ -47,15 +47,15 @@ namespace Paint
 
         protected static Point2D[] RecountPoints(double x, double y, double d)
         {
-            var points = new Point2D[1];
-            points[0] = new Point2D(x, y);
+            var Points = new Point2D[1];
+            Points[0] = new Point2D(x, y);
 
-            return points;
+            return Points;
         }
 
         protected void RecountPoints()
         {
-            points = RecountPoints(x, y, diameter);
+            Points = RecountPoints(x, y, diameter);
         }
 
         public Circle(double x, double y, double d)
@@ -76,7 +76,7 @@ namespace Paint
             RecountPoints();
         }
 
-        public override void Zoom(double zoomFactor)
+        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1)
         {
             if (zoomFactor <= 0)
             {
@@ -85,8 +85,6 @@ namespace Paint
                 return;
             }
 
-            x *= zoomFactor;
-            y *= zoomFactor;
             diameter *= zoomFactor;
 
             RecountPoints();
