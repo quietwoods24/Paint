@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 
 namespace Paint
 {
+    //Line is a class that inherits Shape2D and is responsible for creating a line.
+
     public class Line : Shape2D
     {
         protected double x1 = 0;

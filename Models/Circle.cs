@@ -11,6 +11,10 @@ using Newtonsoft.Json;
 
 namespace Paint
 {
+    //Circle is a class that inherits Shape2D and is responsible for creating a circle shape.
+
+
+
     public class Circle : Shape2D
     {
 

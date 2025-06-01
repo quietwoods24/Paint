@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="Models\Polygon.cs" />
     <Compile Include="Models\Point2D.cs" />
+    <Compile Include="Models\PointD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Shape.cs" />

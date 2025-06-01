@@ -9,11 +9,15 @@ using System.Windows.Forms;
 
 namespace Paint
 {
+    //Shape is a basic abstract class that is the basis for all shape classes.
+    //It defines all standard properties and methods used in shape classes for 
+    //creating, displaying and interacting with shapes.
+
+
 
     // https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings#the-0-custom-specifier
     // Output format for real numbers (coordinates, thickness, etc.)
     // "0.###";
-
     // Do not overlap System.Drawing PointF Struct 
     // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.pointf
     // double, not int, because otherwise, when scaling through integer

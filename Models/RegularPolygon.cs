@@ -11,6 +11,11 @@ using Newtonsoft.Json;
 
 namespace Paint
 {
+    //RegularPolygon is a class that inherits Shape2D and is responsible for
+    //creating shapes - regular polygons.
+
+
+
     // https://en.wikipedia.org/wiki/Regular_polygon
     public class RegularPolygon : Shape2D
     {

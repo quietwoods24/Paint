@@ -44,9 +44,12 @@ namespace Paint
         // https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.savefiledialog?view=netframework-4.7.2
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (CurrImage == null)
+            if (CurrImage == null) {
+                _ = MessageBox.Show("There is no image. To perform " + '"' + "Save" + '"' + 
+                                    "operation you must firstly create image and fill it with shapes.");
                 return;
-
+            }
+            
             using (saveFileDialog)
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)

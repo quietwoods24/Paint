@@ -9,6 +9,10 @@ using System.Windows.Forms;
 
 namespace Paint
 {
+    //Shape2D is a class that inherits Shape and implements all its basic properties and methods.
+    //It is the basis for all 2D shapes that stand on the Point2D array of points.
+
+
     public class Shape2D : Shape
     {
         public double averageX;

@@ -13,6 +13,10 @@ using Newtonsoft.Json;
 
 namespace Paint
 {
+    //Image - class that creates an image and contains a list of shapes.It allows 
+    //to add, edit and delete shapes, as well as to save and open images.
+
+
 
     public class Image
     {

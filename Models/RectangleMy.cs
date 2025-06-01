@@ -11,6 +11,11 @@ using Newtonsoft.Json;
 
 namespace Paint
 {
+    //RectangleMy is a class that inherits Shape2D and is responsible for creating 
+    //a rectangle shape.
+
+
+
     public class RectangleMy : Shape2D
     {
 
