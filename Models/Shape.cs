@@ -45,13 +45,12 @@ namespace Paint
         public virtual string ShapeInfo { get; set; } = "";
         public virtual Color StrokeColor { get; set; } = Color.Black;
         public virtual Color FillColor { get; set; } = Color.Transparent;
-        public virtual float StrokeWidth { get; set; } = 2.0F;
-        public virtual int RotationAngle { get; set; } = 0;
+        public virtual int StrokeWidth { get; set; } = 2;
         public virtual Point2D[] Points { get; set; }
 
 
         public abstract void Move(double xOffset, double yOffset);
-        public abstract void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false);
+        public abstract void Zoom(double zoomX, double zoomY, bool isZoomInPlace);
         public abstract void Draw(PaintEventArgs e);
 
 

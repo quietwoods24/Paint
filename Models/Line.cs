@@ -88,20 +88,20 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
+        public override void Zoom(double zoomX, double zoomY, bool isZoomInPlace = false)
         {
-            if (zoomFactor <= 0)
+            if (zoomX <= 0)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
                 Console.WriteLine(errorMessage);
                 // throw new ArgumentOutOfRangeException(errorMessage);
                 return;
             }
 
-            x1 *= zoomFactor;
-            y1 *= zoomFactor;
-            x2 *= zoomFactor;
-            y2 *= zoomFactor;
+            x1 *= zoomX;
+            y1 *= zoomX;
+            x2 *= zoomX;
+            y2 *= zoomX;
 
             RecountPoints();
         }

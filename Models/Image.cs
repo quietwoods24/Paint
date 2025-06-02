@@ -25,29 +25,34 @@ namespace Paint
         protected List<Shape> shapes;
 
         public float ImgRotationAngle = 0;
-        public SolidBrush SolidBrushFrame;
+        public SolidBrush BackgroundColor;
+        public bool Changed = false;
 
 
-        public List<Shape> Find(string ShName, Color ShColStr, Color ShColZFill)
+        public List<Shape> Find(string shapeName, Color shapeStrokeColor, Color shapeFillColor)
         {
-            List<Shape> finded = new List<Shape> { };
+            List<Shape> finded = new List<Shape>();
+
             foreach (var shape in shapes)
             {
-                bool nameFound = shape.GetType().Name == ShName || ShName == "";
-                bool sColFound = shape.StrokeColor == ShColStr;
-                bool fColFound = shape.FillColor == ShColZFill;
+                bool nameFound = shape.GetType().Name == shapeName || shapeName == "";
+                bool sColFound = shapeStrokeColor == Color.Empty || shape.StrokeColor == shapeStrokeColor;
+                // For line search, this parameter is irrelevant
+                bool fColFound = shapeFillColor == Color.Empty || shape.FillColor == shapeFillColor || shapeName == typeof(Line).Name; // ShName == "Line"
                 string str = shape.ToString();
                 if (nameFound && sColFound && fColFound)
                 {
                     finded.Add(shape);
                 }
             }
+
             return finded;
         }
 
 
         public Shape selectedShape = null;
 
+        public event Action<Shape> SelectedShapeChanged;
 
         [JsonIgnore]
         public Shape SelectedShape
@@ -68,7 +73,10 @@ namespace Paint
 
                 // Select a new shape
                 if (selectedShape != null)
+                {
                     selectedShape.Select();
+                    SelectedShapeChanged?.Invoke(selectedShape);
+                }
             }
 
             get { return selectedShape; }
@@ -107,7 +115,9 @@ namespace Paint
             penFrame = new Pen(Color.Black, 1);
 
             // Image frame fill
-            SolidBrushFrame = new SolidBrush(FillColor);
+            BackgroundColor = new SolidBrush(FillColor);
+
+            Changed = false;
         }
 
 
@@ -125,6 +135,7 @@ namespace Paint
             SelectedShape = null;
             if (shape != null && !shapes.Contains(shape))
                 shapes.Add(shape);
+            Changed = true;
         }
 
 
@@ -147,6 +158,7 @@ namespace Paint
 
             SelectedShape = null;
             shapes.Remove(shape);
+            Changed = true;
         }
 
 
@@ -154,6 +166,7 @@ namespace Paint
         {
             X += xOffset;
             Y += yOffset;
+            Changed = true;
         }
 
 
@@ -164,43 +177,38 @@ namespace Paint
             else
                 foreach (Shape shape in shapes)
                     shape.Move(xOffset, yOffset);
+            Changed = true;
         }
 
 
-        public void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
+        public void Zoom(double zoomX, double zoomY, bool isZoomInPlace)
         {
-            if (zoomFactor <= 0)
+            if (zoomX <= 0)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
                 Console.WriteLine(errorMessage);
                 // throw new ArgumentOutOfRangeException(errorMessage);
                 return;
             }
 
-            Width *= zoomFactor;
-            Height *= zoomFactor;
-
-            foreach (Shape shape in shapes)
-                shape.Zoom(zoomFactor, zFW, zFH, ZoomWholeImg);
-        }
-
-
-        public void ZoomInside(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
-        {
-            if (zoomFactor <= 0)
+            if (!isZoomInPlace)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
-                Console.WriteLine(errorMessage);
-                // throw new ArgumentOutOfRangeException(errorMessage);
-                return;
-            }
-
-            if (SelectedShape != null)
-                SelectedShape.Zoom(zoomFactor, zFW, zFH, ZoomWholeImg);
-            else
+                Width *= zoomX;
+                Height *= zoomX;
                 foreach (Shape shape in shapes)
-                    shape.Zoom(zoomFactor, zFW, zFH, ZoomWholeImg);
+                    shape.Zoom(zoomX, zoomY, false);
+                Changed = true;
+            }
+            else {
+                if (SelectedShape != null)
+                    SelectedShape.Zoom(zoomX, zoomY, true);
+                else
+                    foreach (Shape shape in shapes)
+                        shape.Zoom(zoomX, zoomY, true);
+                Changed = true;
+            }            
         }
+
 
 
         public void Draw(PaintEventArgs e)
@@ -210,7 +218,7 @@ namespace Paint
             e.Graphics.DrawRectangle(penFrame, frame);
 
             // Fill image frame
-            e.Graphics.FillRectangle(SolidBrushFrame, (int)X, (int)Y, (int)(Width), (int)(Height));
+            e.Graphics.FillRectangle(BackgroundColor, (int)X, (int)Y, (int)(Width), (int)(Height));
 
             // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.setclip
             // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.combinemode
@@ -332,24 +340,24 @@ namespace Paint
 
                 case 107: // "+"
                     if (insideImage)
-                        ZoomInside(1.1);
+                        Zoom(1.1, 1, true);
                     else
-                        Zoom(1.1, 1, 1, true);
+                        Zoom(1.1, 1, false);
                     break;
 
                 case 109: // "-"
                     if (insideImage)
-                        ZoomInside(0.9);
+                        Zoom(0.9, 1, true);
                     else
-                        Zoom(0.9, 1, 1, true);
+                        Zoom(0.9, 1, false);
                     break;
                 case 72: // "H"
                     if (insideImage)
-                        ZoomInside(1, 1, 1.1);
+                        Zoom(1, e.Shift ? 0.9 : 1.1, true);
                     break;
                 case 87: // "W"
                     if (insideImage)
-                        ZoomInside(1, 1.1, 1);
+                        Zoom(e.Shift ? 0.9 : 1.1, 1, true);
                     break;
 
                 default:
@@ -397,6 +405,7 @@ namespace Paint
                 Console.WriteLine(errorMessage);
                 // throw new FileNotFoundException(errorMessage);
             }
+            this.Changed = false;
         }
 
 
@@ -427,7 +436,8 @@ namespace Paint
                         this.Width = jsonIm.Width;
                         this.Height = jsonIm.Height;
                         this.FillColor = jsonIm.FillColor;
-                        this.SolidBrushFrame = new SolidBrush(this.FillColor);
+                        this.BackgroundColor = new SolidBrush(this.FillColor);
+                        this.Changed = false;
                     }
                     if (jsonPo != null)
                         shapes.AddRange(jsonPo);

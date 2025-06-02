@@ -39,28 +39,28 @@ namespace Paint
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
             this.panelControls = new System.Windows.Forms.Panel();
             this.groupBoxShape = new System.Windows.Forms.GroupBox();
-            this.button_Line = new System.Windows.Forms.Button();
+            this.buttonLine = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownAngle = new System.Windows.Forms.NumericUpDown();
-            this.button_Circle = new System.Windows.Forms.Button();
+            this.buttonCircle = new System.Windows.Forms.Button();
             this.checkBoxInsideImage = new System.Windows.Forms.CheckBox();
-            this.button_Reg_Triangle = new System.Windows.Forms.Button();
-            this.button_Square = new System.Windows.Forms.Button();
-            this.button_Reg_Hexagon = new System.Windows.Forms.Button();
-            this.button_Rectangle = new System.Windows.Forms.Button();
-            this.button_Reg_Pentagon = new System.Windows.Forms.Button();
+            this.buttonRegTriangle = new System.Windows.Forms.Button();
+            this.buttonSquare = new System.Windows.Forms.Button();
+            this.buttonRegHexagon = new System.Windows.Forms.Button();
+            this.buttonRectangle = new System.Windows.Forms.Button();
+            this.buttonRegPentagon = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button26 = new System.Windows.Forms.Button();
+            this.buttonTransparent = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button_CurrFillColor = new System.Windows.Forms.Button();
+            this.buttonCurrFillColor = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button_CurrStrokeColor = new System.Windows.Forms.Button();
+            this.buttonCurrStrokeColor = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -80,47 +80,47 @@ namespace Paint
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewStrokeWidth = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelDraw = new System.Windows.Forms.Panel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemTriangle = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemPentagon = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemHexagon = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemSquare = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemRectangle = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemCircle = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemline = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemTriangle = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemPentagon = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemHexagon = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSquare = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemRectangle = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemCircle = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemLine = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.HelpButton = new System.Windows.Forms.Button();
-            this.SearchButton = new System.Windows.Forms.Button();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.panelControls.SuspendLayout();
             this.groupBoxShape.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAngle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.menuStrip.SuspendLayout();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControls
@@ -142,16 +142,16 @@ namespace Paint
             // 
             this.groupBoxShape.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxShape.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBoxShape.Controls.Add(this.button_Line);
+            this.groupBoxShape.Controls.Add(this.buttonLine);
             this.groupBoxShape.Controls.Add(this.label4);
             this.groupBoxShape.Controls.Add(this.numericUpDownAngle);
-            this.groupBoxShape.Controls.Add(this.button_Circle);
+            this.groupBoxShape.Controls.Add(this.buttonCircle);
             this.groupBoxShape.Controls.Add(this.checkBoxInsideImage);
-            this.groupBoxShape.Controls.Add(this.button_Reg_Triangle);
-            this.groupBoxShape.Controls.Add(this.button_Square);
-            this.groupBoxShape.Controls.Add(this.button_Reg_Hexagon);
-            this.groupBoxShape.Controls.Add(this.button_Rectangle);
-            this.groupBoxShape.Controls.Add(this.button_Reg_Pentagon);
+            this.groupBoxShape.Controls.Add(this.buttonRegTriangle);
+            this.groupBoxShape.Controls.Add(this.buttonSquare);
+            this.groupBoxShape.Controls.Add(this.buttonRegHexagon);
+            this.groupBoxShape.Controls.Add(this.buttonRectangle);
+            this.groupBoxShape.Controls.Add(this.buttonRegPentagon);
             this.groupBoxShape.ForeColor = System.Drawing.Color.Black;
             this.groupBoxShape.Location = new System.Drawing.Point(3, 80);
             this.groupBoxShape.Name = "groupBoxShape";
@@ -161,15 +161,17 @@ namespace Paint
             this.groupBoxShape.Text = "Add shapes";
             this.groupBoxShape.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Line
+            // buttonLine
             // 
-            this.button_Line.Image = ((System.Drawing.Image)(resources.GetObject("button_Line.Image")));
-            this.button_Line.Location = new System.Drawing.Point(152, 47);
-            this.button_Line.Name = "button_Line";
-            this.button_Line.Size = new System.Drawing.Size(40, 40);
-            this.button_Line.TabIndex = 17;
-            this.button_Line.UseVisualStyleBackColor = true;
-            this.button_Line.Click += new System.EventHandler(this.button_Line_Click);
+            this.buttonLine.Image = ((System.Drawing.Image)(resources.GetObject("buttonLine.Image")));
+            this.buttonLine.Location = new System.Drawing.Point(152, 47);
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(40, 40);
+            this.buttonLine.TabIndex = 17;
+            this.buttonLine.Tag = "200";
+            this.buttonLine.UseVisualStyleBackColor = true;
+            this.buttonLine.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonLine.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // label4
             // 
@@ -179,6 +181,7 @@ namespace Paint
             this.label4.Size = new System.Drawing.Size(107, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Shape rotation angle";
+            this.label4.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // numericUpDownAngle
             // 
@@ -202,16 +205,19 @@ namespace Paint
             this.numericUpDownAngle.Tag = "Rotation angle";
             this.numericUpDownAngle.ValueChanged += new System.EventHandler(this.numericUpDownAngle_ValueChanged);
             this.numericUpDownAngle.Click += new System.EventHandler(this.numericUpDownAngle_Click);
+            this.numericUpDownAngle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Circle
+            // buttonCircle
             // 
-            this.button_Circle.Image = ((System.Drawing.Image)(resources.GetObject("button_Circle.Image")));
-            this.button_Circle.Location = new System.Drawing.Point(105, 69);
-            this.button_Circle.Name = "button_Circle";
-            this.button_Circle.Size = new System.Drawing.Size(43, 43);
-            this.button_Circle.TabIndex = 16;
-            this.button_Circle.UseVisualStyleBackColor = true;
-            this.button_Circle.Click += new System.EventHandler(this.button_Circle_Click);
+            this.buttonCircle.Image = ((System.Drawing.Image)(resources.GetObject("buttonCircle.Image")));
+            this.buttonCircle.Location = new System.Drawing.Point(105, 69);
+            this.buttonCircle.Name = "buttonCircle";
+            this.buttonCircle.Size = new System.Drawing.Size(43, 43);
+            this.buttonCircle.TabIndex = 16;
+            this.buttonCircle.Tag = "900";
+            this.buttonCircle.UseVisualStyleBackColor = true;
+            this.buttonCircle.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonCircle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // checkBoxInsideImage
             // 
@@ -226,71 +232,82 @@ namespace Paint
             this.checkBoxInsideImage.TabIndex = 15;
             this.checkBoxInsideImage.Text = "Move shapes inside image";
             this.checkBoxInsideImage.UseVisualStyleBackColor = true;
+            this.checkBoxInsideImage.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Reg_Triangle
+            // buttonRegTriangle
             // 
-            this.button_Reg_Triangle.Image = ((System.Drawing.Image)(resources.GetObject("button_Reg_Triangle.Image")));
-            this.button_Reg_Triangle.Location = new System.Drawing.Point(7, 20);
-            this.button_Reg_Triangle.Name = "button_Reg_Triangle";
-            this.button_Reg_Triangle.Size = new System.Drawing.Size(43, 43);
-            this.button_Reg_Triangle.TabIndex = 6;
-            this.button_Reg_Triangle.UseVisualStyleBackColor = true;
-            this.button_Reg_Triangle.Click += new System.EventHandler(this.button_Reg_Triangle_Click);
+            this.buttonRegTriangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegTriangle.Image")));
+            this.buttonRegTriangle.Location = new System.Drawing.Point(7, 20);
+            this.buttonRegTriangle.Name = "buttonRegTriangle";
+            this.buttonRegTriangle.Size = new System.Drawing.Size(43, 43);
+            this.buttonRegTriangle.TabIndex = 6;
+            this.buttonRegTriangle.Tag = "1003";
+            this.buttonRegTriangle.UseVisualStyleBackColor = true;
+            this.buttonRegTriangle.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonRegTriangle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Square
+            // buttonSquare
             // 
-            this.button_Square.Image = ((System.Drawing.Image)(resources.GetObject("button_Square.Image")));
-            this.button_Square.Location = new System.Drawing.Point(7, 69);
-            this.button_Square.Name = "button_Square";
-            this.button_Square.Size = new System.Drawing.Size(43, 43);
-            this.button_Square.TabIndex = 7;
-            this.button_Square.UseVisualStyleBackColor = true;
-            this.button_Square.Click += new System.EventHandler(this.button_Square_Click);
+            this.buttonSquare.Image = ((System.Drawing.Image)(resources.GetObject("buttonSquare.Image")));
+            this.buttonSquare.Location = new System.Drawing.Point(7, 69);
+            this.buttonSquare.Name = "buttonSquare";
+            this.buttonSquare.Size = new System.Drawing.Size(43, 43);
+            this.buttonSquare.TabIndex = 7;
+            this.buttonSquare.Tag = "1004";
+            this.buttonSquare.UseVisualStyleBackColor = true;
+            this.buttonSquare.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonSquare.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Reg_Hexagon
+            // buttonRegHexagon
             // 
-            this.button_Reg_Hexagon.Image = ((System.Drawing.Image)(resources.GetObject("button_Reg_Hexagon.Image")));
-            this.button_Reg_Hexagon.Location = new System.Drawing.Point(105, 20);
-            this.button_Reg_Hexagon.Name = "button_Reg_Hexagon";
-            this.button_Reg_Hexagon.Size = new System.Drawing.Size(43, 43);
-            this.button_Reg_Hexagon.TabIndex = 10;
-            this.button_Reg_Hexagon.UseVisualStyleBackColor = true;
-            this.button_Reg_Hexagon.Click += new System.EventHandler(this.button_Reg_Hexagon_Click);
+            this.buttonRegHexagon.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegHexagon.Image")));
+            this.buttonRegHexagon.Location = new System.Drawing.Point(105, 20);
+            this.buttonRegHexagon.Name = "buttonRegHexagon";
+            this.buttonRegHexagon.Size = new System.Drawing.Size(43, 43);
+            this.buttonRegHexagon.TabIndex = 10;
+            this.buttonRegHexagon.Tag = "1006";
+            this.buttonRegHexagon.UseVisualStyleBackColor = true;
+            this.buttonRegHexagon.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonRegHexagon.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Rectangle
+            // buttonRectangle
             // 
-            this.button_Rectangle.Image = ((System.Drawing.Image)(resources.GetObject("button_Rectangle.Image")));
-            this.button_Rectangle.Location = new System.Drawing.Point(56, 69);
-            this.button_Rectangle.Name = "button_Rectangle";
-            this.button_Rectangle.Size = new System.Drawing.Size(43, 43);
-            this.button_Rectangle.TabIndex = 8;
-            this.button_Rectangle.UseVisualStyleBackColor = true;
-            this.button_Rectangle.Click += new System.EventHandler(this.button_Rectangle_Click);
+            this.buttonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRectangle.Image")));
+            this.buttonRectangle.Location = new System.Drawing.Point(56, 69);
+            this.buttonRectangle.Name = "buttonRectangle";
+            this.buttonRectangle.Size = new System.Drawing.Size(43, 43);
+            this.buttonRectangle.TabIndex = 8;
+            this.buttonRectangle.Tag = "400";
+            this.buttonRectangle.UseVisualStyleBackColor = true;
+            this.buttonRectangle.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonRectangle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_Reg_Pentagon
+            // buttonRegPentagon
             // 
-            this.button_Reg_Pentagon.Image = ((System.Drawing.Image)(resources.GetObject("button_Reg_Pentagon.Image")));
-            this.button_Reg_Pentagon.Location = new System.Drawing.Point(56, 20);
-            this.button_Reg_Pentagon.Name = "button_Reg_Pentagon";
-            this.button_Reg_Pentagon.Size = new System.Drawing.Size(43, 43);
-            this.button_Reg_Pentagon.TabIndex = 9;
-            this.button_Reg_Pentagon.UseVisualStyleBackColor = true;
-            this.button_Reg_Pentagon.Click += new System.EventHandler(this.button_Reg_Pentagon_Click);
+            this.buttonRegPentagon.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegPentagon.Image")));
+            this.buttonRegPentagon.Location = new System.Drawing.Point(56, 20);
+            this.buttonRegPentagon.Name = "buttonRegPentagon";
+            this.buttonRegPentagon.Size = new System.Drawing.Size(43, 43);
+            this.buttonRegPentagon.TabIndex = 9;
+            this.buttonRegPentagon.Tag = "1005";
+            this.buttonRegPentagon.UseVisualStyleBackColor = true;
+            this.buttonRegPentagon.Click += new System.EventHandler(this.AddFigure_Click);
+            this.buttonRegPentagon.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBox1.Controls.Add(this.button26);
+            this.groupBox1.Controls.Add(this.buttonTransparent);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button_CurrFillColor);
+            this.groupBox1.Controls.Add(this.buttonCurrFillColor);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button_CurrStrokeColor);
+            this.groupBox1.Controls.Add(this.buttonCurrStrokeColor);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button9);
@@ -316,23 +333,25 @@ namespace Paint
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Palette";
+            this.groupBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button26
+            // buttonTransparent
             // 
-            this.button26.BackColor = System.Drawing.Color.Transparent;
-            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(78, 94);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(50, 30);
-            this.button26.TabIndex = 28;
-            this.button26.UseVisualStyleBackColor = false;
-            this.button26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button26_MouseDown);
+            this.buttonTransparent.BackColor = System.Drawing.Color.Transparent;
+            this.buttonTransparent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonTransparent.BackgroundImage")));
+            this.buttonTransparent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTransparent.Location = new System.Drawing.Point(78, 94);
+            this.buttonTransparent.Name = "buttonTransparent";
+            this.buttonTransparent.Size = new System.Drawing.Size(50, 30);
+            this.buttonTransparent.TabIndex = 28;
+            this.buttonTransparent.UseVisualStyleBackColor = false;
+            this.buttonTransparent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.buttonTransparent.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(145, 116);
+            this.label3.Location = new System.Drawing.Point(12, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 26);
             this.label3.TabIndex = 27;
@@ -348,7 +367,8 @@ namespace Paint
             this.button2.Size = new System.Drawing.Size(19, 19);
             this.button2.TabIndex = 0;
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button4
             // 
@@ -359,12 +379,13 @@ namespace Paint
             this.button4.Size = new System.Drawing.Size(19, 19);
             this.button4.TabIndex = 2;
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button4.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 117);
+            this.label2.Location = new System.Drawing.Point(149, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 26);
             this.label2.TabIndex = 26;
@@ -380,7 +401,8 @@ namespace Paint
             this.button3.Size = new System.Drawing.Size(19, 19);
             this.button3.TabIndex = 1;
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button3.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button7
             // 
@@ -391,18 +413,20 @@ namespace Paint
             this.button7.Size = new System.Drawing.Size(19, 19);
             this.button7.TabIndex = 3;
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button7.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_CurrFillColor
+            // buttonCurrFillColor
             // 
-            this.button_CurrFillColor.BackColor = System.Drawing.Color.Black;
-            this.button_CurrFillColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_CurrFillColor.Location = new System.Drawing.Point(142, 148);
-            this.button_CurrFillColor.Name = "button_CurrFillColor";
-            this.button_CurrFillColor.Size = new System.Drawing.Size(37, 36);
-            this.button_CurrFillColor.TabIndex = 25;
-            this.button_CurrFillColor.UseVisualStyleBackColor = false;
-            this.button_CurrFillColor.Click += new System.EventHandler(this.button27_Click);
+            this.buttonCurrFillColor.BackColor = System.Drawing.Color.Black;
+            this.buttonCurrFillColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrFillColor.Location = new System.Drawing.Point(12, 149);
+            this.buttonCurrFillColor.Name = "buttonCurrFillColor";
+            this.buttonCurrFillColor.Size = new System.Drawing.Size(30, 30);
+            this.buttonCurrFillColor.TabIndex = 25;
+            this.buttonCurrFillColor.UseVisualStyleBackColor = false;
+            this.buttonCurrFillColor.Click += new System.EventHandler(this.CurrFillColor_Click);
+            this.buttonCurrFillColor.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button5
             // 
@@ -413,7 +437,8 @@ namespace Paint
             this.button5.Size = new System.Drawing.Size(19, 19);
             this.button5.TabIndex = 5;
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button5.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button6
             // 
@@ -424,17 +449,19 @@ namespace Paint
             this.button6.Size = new System.Drawing.Size(19, 19);
             this.button6.TabIndex = 4;
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button6.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // button_CurrStrokeColor
+            // buttonCurrStrokeColor
             // 
-            this.button_CurrStrokeColor.BackColor = System.Drawing.Color.White;
-            this.button_CurrStrokeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_CurrStrokeColor.Location = new System.Drawing.Point(21, 148);
-            this.button_CurrStrokeColor.Name = "button_CurrStrokeColor";
-            this.button_CurrStrokeColor.Size = new System.Drawing.Size(37, 36);
-            this.button_CurrStrokeColor.TabIndex = 24;
-            this.button_CurrStrokeColor.UseVisualStyleBackColor = false;
+            this.buttonCurrStrokeColor.BackColor = System.Drawing.Color.White;
+            this.buttonCurrStrokeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrStrokeColor.Location = new System.Drawing.Point(153, 148);
+            this.buttonCurrStrokeColor.Name = "buttonCurrStrokeColor";
+            this.buttonCurrStrokeColor.Size = new System.Drawing.Size(30, 30);
+            this.buttonCurrStrokeColor.TabIndex = 24;
+            this.buttonCurrStrokeColor.UseVisualStyleBackColor = false;
+            this.buttonCurrStrokeColor.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button10
             // 
@@ -445,7 +472,8 @@ namespace Paint
             this.button10.Size = new System.Drawing.Size(19, 19);
             this.button10.TabIndex = 6;
             this.button10.UseVisualStyleBackColor = false;
-            this.button10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button10.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button8
             // 
@@ -456,7 +484,8 @@ namespace Paint
             this.button8.Size = new System.Drawing.Size(19, 19);
             this.button8.TabIndex = 8;
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button8.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button9
             // 
@@ -467,7 +496,8 @@ namespace Paint
             this.button9.Size = new System.Drawing.Size(19, 19);
             this.button9.TabIndex = 7;
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button9.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button23
             // 
@@ -478,7 +508,8 @@ namespace Paint
             this.button23.Size = new System.Drawing.Size(19, 19);
             this.button23.TabIndex = 23;
             this.button23.UseVisualStyleBackColor = false;
-            this.button23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button23.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button13
             // 
@@ -489,7 +520,8 @@ namespace Paint
             this.button13.Size = new System.Drawing.Size(19, 19);
             this.button13.TabIndex = 9;
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button13.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button24
             // 
@@ -500,7 +532,8 @@ namespace Paint
             this.button24.Size = new System.Drawing.Size(19, 19);
             this.button24.TabIndex = 22;
             this.button24.UseVisualStyleBackColor = false;
-            this.button24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button24.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button11
             // 
@@ -511,7 +544,8 @@ namespace Paint
             this.button11.Size = new System.Drawing.Size(19, 19);
             this.button11.TabIndex = 11;
             this.button11.UseVisualStyleBackColor = false;
-            this.button11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button11.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button25
             // 
@@ -522,7 +556,8 @@ namespace Paint
             this.button25.Size = new System.Drawing.Size(19, 19);
             this.button25.TabIndex = 21;
             this.button25.UseVisualStyleBackColor = false;
-            this.button25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button25.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button12
             // 
@@ -533,7 +568,8 @@ namespace Paint
             this.button12.Size = new System.Drawing.Size(19, 19);
             this.button12.TabIndex = 10;
             this.button12.UseVisualStyleBackColor = false;
-            this.button12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button12.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button20
             // 
@@ -544,7 +580,8 @@ namespace Paint
             this.button20.Size = new System.Drawing.Size(19, 19);
             this.button20.TabIndex = 20;
             this.button20.UseVisualStyleBackColor = false;
-            this.button20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button20.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button16
             // 
@@ -555,7 +592,8 @@ namespace Paint
             this.button16.Size = new System.Drawing.Size(19, 19);
             this.button16.TabIndex = 12;
             this.button16.UseVisualStyleBackColor = false;
-            this.button16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button16.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button21
             // 
@@ -566,7 +604,8 @@ namespace Paint
             this.button21.Size = new System.Drawing.Size(19, 19);
             this.button21.TabIndex = 19;
             this.button21.UseVisualStyleBackColor = false;
-            this.button21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button21.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button15
             // 
@@ -577,7 +616,8 @@ namespace Paint
             this.button15.Size = new System.Drawing.Size(19, 19);
             this.button15.TabIndex = 13;
             this.button15.UseVisualStyleBackColor = false;
-            this.button15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button15.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button22
             // 
@@ -588,7 +628,8 @@ namespace Paint
             this.button22.Size = new System.Drawing.Size(19, 19);
             this.button22.TabIndex = 18;
             this.button22.UseVisualStyleBackColor = false;
-            this.button22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button22.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button14
             // 
@@ -599,7 +640,8 @@ namespace Paint
             this.button14.Size = new System.Drawing.Size(19, 19);
             this.button14.TabIndex = 14;
             this.button14.UseVisualStyleBackColor = false;
-            this.button14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button14.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button17
             // 
@@ -610,7 +652,8 @@ namespace Paint
             this.button17.Size = new System.Drawing.Size(19, 19);
             this.button17.TabIndex = 17;
             this.button17.UseVisualStyleBackColor = false;
-            this.button17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button17.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button19
             // 
@@ -621,7 +664,8 @@ namespace Paint
             this.button19.Size = new System.Drawing.Size(19, 19);
             this.button19.TabIndex = 15;
             this.button19.UseVisualStyleBackColor = false;
-            this.button19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button19.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // button18
             // 
@@ -632,12 +676,13 @@ namespace Paint
             this.button18.Size = new System.Drawing.Size(19, 19);
             this.button18.TabIndex = 16;
             this.button18.UseVisualStyleBackColor = false;
-            this.button18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button23_MouseDown);
+            this.button18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AssignColor_MouseDown);
+            this.button18.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBox2.Controls.Add(this.listView1);
+            this.groupBox2.Controls.Add(this.listViewStrokeWidth);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(3, 487);
             this.groupBox2.Name = "groupBox2";
@@ -645,26 +690,29 @@ namespace Paint
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Stroke width";
+            this.groupBox2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // listView1
+            // listViewStrokeWidth
             // 
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.listViewStrokeWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewStrokeWidth.HideSelection = false;
+            this.listViewStrokeWidth.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
             listViewItem3,
             listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(33, 28);
-            this.listView1.Margin = new System.Windows.Forms.Padding(0);
-            this.listView1.Name = "listView1";
-            this.listView1.Scrollable = false;
-            this.listView1.Size = new System.Drawing.Size(137, 79);
-            this.listView1.SmallImageList = this.imageList1;
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.SmallIcon;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            this.listViewStrokeWidth.Location = new System.Drawing.Point(33, 28);
+            this.listViewStrokeWidth.Margin = new System.Windows.Forms.Padding(0);
+            this.listViewStrokeWidth.MultiSelect = false;
+            this.listViewStrokeWidth.Name = "listViewStrokeWidth";
+            this.listViewStrokeWidth.Scrollable = false;
+            this.listViewStrokeWidth.Size = new System.Drawing.Size(137, 79);
+            this.listViewStrokeWidth.SmallImageList = this.imageList1;
+            this.listViewStrokeWidth.TabIndex = 0;
+            this.listViewStrokeWidth.UseCompatibleStateImageBehavior = false;
+            this.listViewStrokeWidth.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewStrokeWidth.SelectedIndexChanged += new System.EventHandler(this.listViewStrokeWidth_SelectedIndexChanged);
+            this.listViewStrokeWidth.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // imageList1
             // 
@@ -708,194 +756,197 @@ namespace Paint
             this.saveFileDialog.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
             this.saveFileDialog.RestoreDirectory = true;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem,
+            this.EditToolStripMenuItem,
+            this.ToolsToolStripMenuItem,
+            this.HelpToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(861, 24);
+            this.menuStrip.TabIndex = 6;
+            this.menuStrip.Text = "menuStrip";
             // 
-            // fileToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemNew,
+            this.ToolStripMenuItemOpen,
             this.toolStripSeparator,
-            this.saveToolStripMenuItem,
+            this.ToolStripMenuItemSave,
             this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.fileToolStripMenuItem.Text = "&File";
+            this.ToolStripMenuItemExit});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.FileToolStripMenuItem.Text = "&File";
             // 
-            // newToolStripMenuItem
+            // ToolStripMenuItemNew
             // 
-            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.newToolStripMenuItem.Text = "&New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.ToolStripMenuItemNew.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItemNew.Image")));
+            this.ToolStripMenuItemNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripMenuItemNew.Name = "ToolStripMenuItemNew";
+            this.ToolStripMenuItemNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.ToolStripMenuItemNew.Size = new System.Drawing.Size(140, 22);
+            this.ToolStripMenuItemNew.Text = "&New";
+            this.ToolStripMenuItemNew.Click += new System.EventHandler(this.New_Click);
             // 
-            // openToolStripMenuItem
+            // ToolStripMenuItemOpen
             // 
-            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
-            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.openToolStripMenuItem.Text = "&Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.ToolStripMenuItemOpen.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItemOpen.Image")));
+            this.ToolStripMenuItemOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripMenuItemOpen.Name = "ToolStripMenuItemOpen";
+            this.ToolStripMenuItemOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.ToolStripMenuItemOpen.Size = new System.Drawing.Size(140, 22);
+            this.ToolStripMenuItemOpen.Text = "&Open";
+            this.ToolStripMenuItemOpen.Click += new System.EventHandler(this.Open_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(137, 6);
             // 
-            // saveToolStripMenuItem
+            // ToolStripMenuItemSave
             // 
-            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.ToolStripMenuItemSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripMenuItemSave.Name = "ToolStripMenuItemSave";
+            this.ToolStripMenuItemSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.ToolStripMenuItemSave.Size = new System.Drawing.Size(140, 22);
+            this.ToolStripMenuItemSave.Text = "&Save";
+            this.ToolStripMenuItemSave.Click += new System.EventHandler(this.Save_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
             // 
-            // exitToolStripMenuItem
+            // ToolStripMenuItemExit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(140, 22);
+            this.ToolStripMenuItemExit.Text = "E&xit";
+            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.ToolStripMenuItemExit_Click);
             // 
-            // editToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemTriangle,
-            this.toolStripMenuItemPentagon,
-            this.toolStripMenuItemHexagon,
-            this.toolStripMenuItemSquare,
-            this.toolStripMenuItemRectangle,
-            this.toolStripMenuItemCircle,
-            this.ToolStripMenuItemline,
-            this.toolStripMenuItemDelete});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.editToolStripMenuItem.Text = "&Edit";
+            this.EditToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemTriangle,
+            this.ToolStripMenuItemPentagon,
+            this.ToolStripMenuItemHexagon,
+            this.ToolStripMenuItemSquare,
+            this.ToolStripMenuItemRectangle,
+            this.ToolStripMenuItemCircle,
+            this.ToolStripMenuItemLine,
+            this.ToolStripMenuItemDelete});
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.EditToolStripMenuItem.Text = "&Edit";
             // 
-            // toolStripMenuItemTriangle
+            // ToolStripMenuItemTriangle
             // 
-            this.toolStripMenuItemTriangle.Name = "toolStripMenuItemTriangle";
-            this.toolStripMenuItemTriangle.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemTriangle.Text = "&Add triangle";
-            this.toolStripMenuItemTriangle.Click += new System.EventHandler(this.toolStripMenuItemTriangle_Click);
+            this.ToolStripMenuItemTriangle.Name = "ToolStripMenuItemTriangle";
+            this.ToolStripMenuItemTriangle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemTriangle.Tag = "3";
+            this.ToolStripMenuItemTriangle.Text = "&Add triangle";
+            this.ToolStripMenuItemTriangle.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // toolStripMenuItemPentagon
+            // ToolStripMenuItemPentagon
             // 
-            this.toolStripMenuItemPentagon.Name = "toolStripMenuItemPentagon";
-            this.toolStripMenuItemPentagon.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemPentagon.Text = "&Add pentagon";
-            this.toolStripMenuItemPentagon.Click += new System.EventHandler(this.toolStripMenuItemPentagon_Click);
+            this.ToolStripMenuItemPentagon.Name = "ToolStripMenuItemPentagon";
+            this.ToolStripMenuItemPentagon.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemPentagon.Tag = "5";
+            this.ToolStripMenuItemPentagon.Text = "&Add pentagon";
+            this.ToolStripMenuItemPentagon.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // toolStripMenuItemHexagon
+            // ToolStripMenuItemHexagon
             // 
-            this.toolStripMenuItemHexagon.Name = "toolStripMenuItemHexagon";
-            this.toolStripMenuItemHexagon.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemHexagon.Text = "&Add hexagon";
-            this.toolStripMenuItemHexagon.Click += new System.EventHandler(this.toolStripMenuItemHexagon_Click);
+            this.ToolStripMenuItemHexagon.Name = "ToolStripMenuItemHexagon";
+            this.ToolStripMenuItemHexagon.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemHexagon.Tag = "6";
+            this.ToolStripMenuItemHexagon.Text = "&Add hexagon";
+            this.ToolStripMenuItemHexagon.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // toolStripMenuItemSquare
+            // ToolStripMenuItemSquare
             // 
-            this.toolStripMenuItemSquare.Name = "toolStripMenuItemSquare";
-            this.toolStripMenuItemSquare.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemSquare.Text = "&Add square";
-            this.toolStripMenuItemSquare.Click += new System.EventHandler(this.toolStripMenuItemSquare_Click);
+            this.ToolStripMenuItemSquare.Name = "ToolStripMenuItemSquare";
+            this.ToolStripMenuItemSquare.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSquare.Tag = "4";
+            this.ToolStripMenuItemSquare.Text = "&Add square";
+            this.ToolStripMenuItemSquare.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // toolStripMenuItemRectangle
+            // ToolStripMenuItemRectangle
             // 
-            this.toolStripMenuItemRectangle.Name = "toolStripMenuItemRectangle";
-            this.toolStripMenuItemRectangle.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemRectangle.Text = "&Add rectangle";
-            this.toolStripMenuItemRectangle.Click += new System.EventHandler(this.toolStripMenuItemRectangle_Click);
+            this.ToolStripMenuItemRectangle.Name = "ToolStripMenuItemRectangle";
+            this.ToolStripMenuItemRectangle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemRectangle.Text = "&Add rectangle";
+            this.ToolStripMenuItemRectangle.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // toolStripMenuItemCircle
+            // ToolStripMenuItemCircle
             // 
-            this.toolStripMenuItemCircle.Name = "toolStripMenuItemCircle";
-            this.toolStripMenuItemCircle.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemCircle.Text = "&Add circle";
-            this.toolStripMenuItemCircle.Click += new System.EventHandler(this.toolStripMenuItemCircle_Click);
+            this.ToolStripMenuItemCircle.Name = "ToolStripMenuItemCircle";
+            this.ToolStripMenuItemCircle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemCircle.Text = "&Add circle";
+            this.ToolStripMenuItemCircle.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // ToolStripMenuItemline
+            // ToolStripMenuItemLine
             // 
-            this.ToolStripMenuItemline.Name = "ToolStripMenuItemline";
-            this.ToolStripMenuItemline.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemline.Text = "&Add line";
-            this.ToolStripMenuItemline.Click += new System.EventHandler(this.ToolStripMenuItemline_Click);
+            this.ToolStripMenuItemLine.Name = "ToolStripMenuItemLine";
+            this.ToolStripMenuItemLine.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemLine.Text = "&Add line";
+            this.ToolStripMenuItemLine.Click += new System.EventHandler(this.AddFigure_Click);
             // 
-            // toolStripMenuItemDelete
+            // ToolStripMenuItemDelete
             // 
-            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemDelete.Text = "&Delete shape";
-            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
+            this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
+            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemDelete.Text = "&Delete selected shape";
+            this.ToolStripMenuItemDelete.Click += new System.EventHandler(this.ToolStripMenuItemDelete_Click);
             // 
-            // toolsToolStripMenuItem
+            // ToolsToolStripMenuItem
             // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.customizeToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.toolsToolStripMenuItem.Text = "&Tools";
+            this.ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemSearch});
+            this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
+            this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.ToolsToolStripMenuItem.Text = "&Tools";
             // 
-            // toolStripMenuItem1
+            // ToolStripMenuItemSearch
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
-            this.toolStripMenuItem1.Text = "&About";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.ToolStripMenuItemSearch.Name = "ToolStripMenuItemSearch";
+            this.ToolStripMenuItemSearch.Size = new System.Drawing.Size(139, 22);
+            this.ToolStripMenuItemSearch.Text = "&Search shape";
+            this.ToolStripMenuItemSearch.Click += new System.EventHandler(this.Search_Click);
             // 
-            // customizeToolStripMenuItem
+            // HelpToolStripMenuItem
             // 
-            this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.customizeToolStripMenuItem.Text = "&Search shape";
-            this.customizeToolStripMenuItem.Click += new System.EventHandler(this.customizeToolStripMenuItem_Click);
+            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemHelp,
+            this.toolStripSeparator5,
+            this.ToolStripMenuItemAbout});
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.HelpToolStripMenuItem.Text = "&Help";
             // 
-            // helpToolStripMenuItem
+            // ToolStripMenuItemHelp
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contentsToolStripMenuItem,
-            this.toolStripSeparator5});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // contentsToolStripMenuItem
-            // 
-            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.contentsToolStripMenuItem.Text = "&View Help";
-            this.contentsToolStripMenuItem.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
+            this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
+            this.ToolStripMenuItemHelp.Size = new System.Drawing.Size(120, 22);
+            this.ToolStripMenuItemHelp.Text = "&View Help";
+            this.ToolStripMenuItemHelp.Click += new System.EventHandler(this.Help_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(117, 6);
+            // 
+            // ToolStripMenuItemAbout
+            // 
+            this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(120, 22);
+            this.ToolStripMenuItemAbout.Text = "&About";
+            this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
             // buttonNew
             // 
@@ -908,7 +959,7 @@ namespace Paint
             this.buttonNew.Size = new System.Drawing.Size(35, 35);
             this.buttonNew.TabIndex = 1;
             this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            this.buttonNew.Click += new System.EventHandler(this.New_Click);
             this.buttonNew.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // buttonLoad
@@ -922,7 +973,7 @@ namespace Paint
             this.buttonLoad.Size = new System.Drawing.Size(35, 35);
             this.buttonLoad.TabIndex = 2;
             this.buttonLoad.UseVisualStyleBackColor = false;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonOpen_Click);
+            this.buttonLoad.Click += new System.EventHandler(this.Open_Click);
             this.buttonLoad.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // buttonSave
@@ -936,48 +987,51 @@ namespace Paint
             this.buttonSave.Size = new System.Drawing.Size(35, 35);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.Save_Click);
             this.buttonSave.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // panel2
+            // panelMenu
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.HelpButton);
-            this.panel2.Controls.Add(this.SearchButton);
-            this.panel2.Controls.Add(this.buttonSave);
-            this.panel2.Controls.Add(this.buttonLoad);
-            this.panel2.Controls.Add(this.buttonNew);
-            this.panel2.Controls.Add(this.menuStrip1);
-            this.panel2.ForeColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(863, 75);
-            this.panel2.TabIndex = 6;
+            this.panelMenu.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.buttonSearch);
+            this.panelMenu.Controls.Add(this.buttonHelp);
+            this.panelMenu.Controls.Add(this.buttonSave);
+            this.panelMenu.Controls.Add(this.buttonLoad);
+            this.panelMenu.Controls.Add(this.buttonNew);
+            this.panelMenu.Controls.Add(this.menuStrip);
+            this.panelMenu.ForeColor = System.Drawing.Color.Black;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(863, 75);
+            this.panelMenu.TabIndex = 6;
+            this.panelMenu.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // HelpButton
+            // buttonSearch
             // 
-            this.HelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HelpButton.BackgroundImage")));
-            this.HelpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.HelpButton.Location = new System.Drawing.Point(243, 31);
-            this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(35, 35);
-            this.HelpButton.TabIndex = 8;
-            this.HelpButton.UseVisualStyleBackColor = true;
-            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            this.buttonSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSearch.BackgroundImage")));
+            this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonSearch.Location = new System.Drawing.Point(202, 31);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(35, 35);
+            this.buttonSearch.TabIndex = 8;
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.Search_Click);
+            this.buttonSearch.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
-            // SearchButton
+            // buttonHelp
             // 
-            this.SearchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SearchButton.BackgroundImage")));
-            this.SearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SearchButton.Location = new System.Drawing.Point(202, 31);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(35, 35);
-            this.SearchButton.TabIndex = 7;
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.buttonHelp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonHelp.BackgroundImage")));
+            this.buttonHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonHelp.Location = new System.Drawing.Point(243, 31);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(35, 35);
+            this.buttonHelp.TabIndex = 7;
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.Help_Click);
+            this.buttonHelp.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // MainForm
             // 
@@ -985,7 +1039,7 @@ namespace Paint
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(62)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(863, 680);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelControls);
             this.Controls.Add(this.panelDraw);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1006,10 +1060,10 @@ namespace Paint
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1023,29 +1077,29 @@ namespace Paint
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.CheckBox checkBoxInsideImage;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemNew;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOpen;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemline;
-        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemLine;
+        private System.Windows.Forms.ToolStripMenuItem ToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSearch;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Button buttonNew;
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewStrokeWidth;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button25;
@@ -1070,30 +1124,30 @@ namespace Paint
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button_CurrFillColor;
-        private System.Windows.Forms.Button button_CurrStrokeColor;
+        private System.Windows.Forms.Button buttonCurrFillColor;
+        private System.Windows.Forms.Button buttonCurrStrokeColor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button_Reg_Hexagon;
-        private System.Windows.Forms.Button button_Reg_Pentagon;
-        private System.Windows.Forms.Button button_Rectangle;
-        private System.Windows.Forms.Button button_Square;
-        private System.Windows.Forms.Button button_Reg_Triangle;
-        private System.Windows.Forms.Button button_Circle;
+        private System.Windows.Forms.Button buttonTransparent;
+        private System.Windows.Forms.Button buttonRegHexagon;
+        private System.Windows.Forms.Button buttonRegPentagon;
+        private System.Windows.Forms.Button buttonRectangle;
+        private System.Windows.Forms.Button buttonSquare;
+        private System.Windows.Forms.Button buttonRegTriangle;
+        private System.Windows.Forms.Button buttonCircle;
         private System.Windows.Forms.NumericUpDown numericUpDownAngle;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button_Line;
-        private System.Windows.Forms.Button HelpButton;
-        private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTriangle;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPentagon;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHexagon;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSquare;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRectangle;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCircle;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
+        private System.Windows.Forms.Button buttonLine;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemTriangle;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemPentagon;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemHexagon;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSquare;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRectangle;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemCircle;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelete;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAbout;
     }
 }
 

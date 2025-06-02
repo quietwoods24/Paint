@@ -90,35 +90,34 @@ namespace Paint
             RecountPoints();
         }
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
+        public override void Zoom(double zoomX, double zoomY, bool isZoomInPlace)
         {
-            if (zoomFactor <= 0)
+            if (zoomX <= 0)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
+                Console.WriteLine(errorMessage);
+                // throw new ArgumentOutOfRangeException(errorMessage);
+                return;
+            }
+            if (zoomY <= 0)
+            {
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
                 Console.WriteLine(errorMessage);
                 // throw new ArgumentOutOfRangeException(errorMessage);
                 return;
             }
 
-            if (!ZoomWholeImg)
+            if (isZoomInPlace)
             {
-                if (zoomFactor != 1 && zFW == 1 && zFH == 1)
-                {
-                    w *= zoomFactor;
-                    h *= zoomFactor;
-                }
-                else
-                {
-                    w *= zFW;
-                    h *= zFH;
-                }
+                w *= zoomX;
+                h *= zoomY;
             }
             else
             {
-                x *= zoomFactor;
-                y *= zoomFactor;
-                w *= zoomFactor;
-                h *= zoomFactor;
+                x *= zoomX;
+                y *= zoomX;
+                w *= zoomX;
+                h *= zoomX;
             }
             
             RecountPoints();

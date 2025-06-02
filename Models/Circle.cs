@@ -80,20 +80,23 @@ namespace Paint
             RecountPoints();
         }
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
+        public override void Zoom(double zoomX, double zoomY, bool isZoomInPlace)
         {
-            if (zoomFactor <= 0)
+            if (zoomX <= 0)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
                 Console.WriteLine(errorMessage);
                 return;
             }
-            if (ZoomWholeImg) {
-                x *= zoomFactor;
-                y *= zoomFactor;
+                        
+            if (isZoomInPlace)
+               diameter *= zoomX;
+            else {
+                diameter *= zoomX;
+                x *= zoomX;
+                y *= zoomX;
             }
-            else
-                diameter *= zoomFactor;
+           
 
             RecountPoints();
         }
@@ -126,7 +129,15 @@ namespace Paint
 
             Pen pen = new Pen(StrokeColor, StrokeWidth);
             Pen penSelected = new Pen(selectedColor, selectedWidth);
-            e.Graphics.DrawEllipse(selected ? penSelected : pen, (float)x, (float)y, (float)diameter, (float)diameter);
+
+            e.Graphics.DrawEllipse(pen, (float)x, (float)y, (float)diameter, (float)diameter);
+            if (selected)
+            {
+                // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.pen.dashstyle
+                penSelected.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                e.Graphics.DrawEllipse(penSelected, (float)x, (float)y, (float)diameter, (float)diameter);
+                penSelected.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            }
         }
     }
 }

@@ -15,8 +15,6 @@ namespace Paint
 
     public class Shape2D : Shape
     {
-        public double averageX;
-        public double averageY;
         public Shape2D()
         {
             // https://stackoverflow.com/questions/13947997/how-to-deserialize-class-without-calling-a-constructor
@@ -71,11 +69,11 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
+        public override void Zoom(double zoomX, double zoomY, bool isZoomInPlace)
         {
-            if (zoomFactor <= 0)
+            if (zoomX <= 0)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
                 Console.WriteLine(errorMessage);
                 // throw new ArgumentOutOfRangeException(errorMessage);
                 return;
@@ -83,8 +81,8 @@ namespace Paint
 
             foreach (Point2D point in Points)
             {
-                point.X *= zoomFactor;
-                point.Y *= zoomFactor;
+                point.X *= zoomX;
+                point.Y *= zoomX;
             }
         }
 
@@ -106,41 +104,45 @@ namespace Paint
             // Draw a polygon stroke
             // Create a pen
             Pen pen = new Pen(StrokeColor, StrokeWidth);
+            pen.DashCap = System.Drawing.Drawing2D.DashCap.Round;
+            pen.LineJoin = System.Drawing.Drawing2D.LineJoin.Round;
             Pen penSelected = new Pen(selectedColor, selectedWidth);
-
-            e.Graphics.DrawPolygon(selected ? penSelected : pen, shapePoints);
+            penSelected.DashCap = System.Drawing.Drawing2D.DashCap.Round;
+            penSelected.LineJoin = System.Drawing.Drawing2D.LineJoin.Round;
 
             // Fill the polygon
             if (FillColor != Color.Transparent)
             {
-                // Create a pen
+                // Create a brush
                 SolidBrush brush = new SolidBrush(FillColor);
                 e.Graphics.FillPolygon(brush, shapePoints);
+            }
+
+            e.Graphics.DrawPolygon(pen, shapePoints);
+            if (selected)
+            {
+                // https://learn.microsoft.com/en-us/dotnet/api/system.drawing.pen.dashstyle
+                penSelected.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                e.Graphics.DrawPolygon(penSelected, shapePoints);
+                penSelected.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             }
 
             // Draw markers
             if (selected)
             {
-                double SumX = 0;
-                double SumY = 0;
-
                 for (int i = 0; i < Points.Length; i++)
                 {
                     int markerX = (int)Points[i].X;
                     int markerY = (int)Points[i].Y;
 
-                    SumX += Points[i].X;
-                    SumY += Points[i].Y;
-
                     e.Graphics.DrawEllipse(penSelected, markerX - markerSize, markerY - markerSize, 2 * markerSize, 2 * markerSize);
                 }
 
                 if (this is RegularPolygon) {
-                    averageX = (float)(SumX / Points.Length);
-                    averageY = (float)(SumY / Points.Length);
-                    e.Graphics.DrawEllipse(penSelected, (float)averageX - markerSize, (float)averageY - markerSize, 2 * markerSize, 2 * markerSize);
+                    float centerx = (float)(this as RegularPolygon).X - markerSize;
+                    float centerY = (float)(this as RegularPolygon).Y - markerSize;
+                    e.Graphics.DrawEllipse(penSelected, centerx, centerY, 2 * markerSize, 2 * markerSize);
                 }           
-
             }
         }
 

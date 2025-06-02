@@ -26,7 +26,6 @@ namespace Paint
         protected int n = 1;
         protected double r = 0;
         protected double alpha = 0;
-        protected double rotationangle;
         protected double x = 0;
         protected double y = 0;
 
@@ -40,7 +39,6 @@ namespace Paint
         public int N { get { return n; } set { n = value; RecountPoints(); } }
         public double R { get { return r; } set { r = value; RecountPoints(); } }
         public double Alpha { get { return alpha; } set { alpha = value; RecountPoints(); } }
-        public override int RotationAngle { get { return (int)rotationangle; } set { rotationangle = value; } }
         public double X { get { return x; } set { x = value; RecountPoints(); } }
         public double Y { get { return y; } set { y = value; RecountPoints(); } }
 
@@ -91,7 +89,7 @@ namespace Paint
         // For internal use only
         protected void RecountPoints()
         {
-            Points = RecountPoints(n, r, rotationangle, x, y);
+            Points = RecountPoints(n, r, alpha, x, y);
         }
 
 
@@ -117,7 +115,6 @@ namespace Paint
             n = sideCount;
             r = radius;
             alpha = startAngle;
-            rotationangle = startAngle;
             x = centerX;
             y = centerY;
 
@@ -134,26 +131,22 @@ namespace Paint
         }
 
 
-        public override void Zoom(double zoomFactor, double zFW = 1, double zFH = 1, bool ZoomWholeImg = false)
+        public override void Zoom(double zoomX, double zoomY, bool isZoomInPlace)
         {
-            if (zoomFactor <= 0)
+            if (zoomX <= 0)
             {
-                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomFactor}";
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
                 Console.WriteLine(errorMessage);
                 // throw new ArgumentOutOfRangeException(errorMessage);
                 return;
             }
-
-            if (!ZoomWholeImg)
-            {
-                r *= zoomFactor;
-            }
+            if (isZoomInPlace)
+                r *= zoomX;
             else {
-                x *= zoomFactor;
-                y *= zoomFactor;
-                r *= zoomFactor;
+                r *= zoomX;
+                x *= zoomX;
+                y *= zoomX;
             }
-            
 
             RecountPoints();
         }
