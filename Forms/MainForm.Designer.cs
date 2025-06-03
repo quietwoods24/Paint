@@ -204,7 +204,6 @@ namespace Paint
             this.numericUpDownAngle.TabIndex = 6;
             this.numericUpDownAngle.Tag = "Rotation angle";
             this.numericUpDownAngle.ValueChanged += new System.EventHandler(this.numericUpDownAngle_ValueChanged);
-            this.numericUpDownAngle.Click += new System.EventHandler(this.numericUpDownAngle_Click);
             this.numericUpDownAngle.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
             // buttonCircle
@@ -249,7 +248,7 @@ namespace Paint
             // buttonSquare
             // 
             this.buttonSquare.Image = ((System.Drawing.Image)(resources.GetObject("buttonSquare.Image")));
-            this.buttonSquare.Location = new System.Drawing.Point(7, 69);
+            this.buttonSquare.Location = new System.Drawing.Point(55, 20);
             this.buttonSquare.Name = "buttonSquare";
             this.buttonSquare.Size = new System.Drawing.Size(43, 43);
             this.buttonSquare.TabIndex = 7;
@@ -261,7 +260,7 @@ namespace Paint
             // buttonRegHexagon
             // 
             this.buttonRegHexagon.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegHexagon.Image")));
-            this.buttonRegHexagon.Location = new System.Drawing.Point(105, 20);
+            this.buttonRegHexagon.Location = new System.Drawing.Point(55, 69);
             this.buttonRegHexagon.Name = "buttonRegHexagon";
             this.buttonRegHexagon.Size = new System.Drawing.Size(43, 43);
             this.buttonRegHexagon.TabIndex = 10;
@@ -273,7 +272,7 @@ namespace Paint
             // buttonRectangle
             // 
             this.buttonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRectangle.Image")));
-            this.buttonRectangle.Location = new System.Drawing.Point(56, 69);
+            this.buttonRectangle.Location = new System.Drawing.Point(105, 20);
             this.buttonRectangle.Name = "buttonRectangle";
             this.buttonRectangle.Size = new System.Drawing.Size(43, 43);
             this.buttonRectangle.TabIndex = 8;
@@ -285,7 +284,7 @@ namespace Paint
             // buttonRegPentagon
             // 
             this.buttonRegPentagon.Image = ((System.Drawing.Image)(resources.GetObject("buttonRegPentagon.Image")));
-            this.buttonRegPentagon.Location = new System.Drawing.Point(56, 20);
+            this.buttonRegPentagon.Location = new System.Drawing.Point(7, 69);
             this.buttonRegPentagon.Name = "buttonRegPentagon";
             this.buttonRegPentagon.Size = new System.Drawing.Size(43, 43);
             this.buttonRegPentagon.TabIndex = 9;
@@ -915,7 +914,8 @@ namespace Paint
             // ToolStripMenuItemSearch
             // 
             this.ToolStripMenuItemSearch.Name = "ToolStripMenuItemSearch";
-            this.ToolStripMenuItemSearch.Size = new System.Drawing.Size(139, 22);
+            this.ToolStripMenuItemSearch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.ToolStripMenuItemSearch.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItemSearch.Text = "&Search shape";
             this.ToolStripMenuItemSearch.Click += new System.EventHandler(this.Search_Click);
             // 

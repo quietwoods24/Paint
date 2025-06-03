@@ -340,16 +340,16 @@ namespace Paint
 
                 case 107: // "+"
                     if (insideImage)
-                        Zoom(1.1, 1, true);
+                        Zoom(1.1, 1.1, true);
                     else
-                        Zoom(1.1, 1, false);
+                        Zoom(1.1, 1.1, false);
                     break;
 
                 case 109: // "-"
                     if (insideImage)
-                        Zoom(0.9, 1, true);
+                        Zoom(0.9, 0.9, true);
                     else
-                        Zoom(0.9, 1, false);
+                        Zoom(0.9, 0.9, false);
                     break;
                 case 72: // "H"
                     if (insideImage)

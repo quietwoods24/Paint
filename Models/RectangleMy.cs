@@ -115,7 +115,7 @@ namespace Paint
             else
             {
                 x *= zoomX;
-                y *= zoomX;
+                y *= zoomY;
                 w *= zoomX;
                 h *= zoomX;
             }

@@ -278,6 +278,8 @@ namespace Paint
             }
             if (0 <= itemIndex && itemIndex < listViewStrokeWidth.Items.Count)
                 listViewStrokeWidth.Items[itemIndex].Selected = true;
+            if (shape is RegularPolygon)
+                numericUpDownAngle.Value = (int)(shape as RegularPolygon).Alpha;
         }
 
 
@@ -332,12 +334,7 @@ namespace Paint
             }
 
         }
-
-        private void numericUpDownAngle_Click(object sender, EventArgs e)
-        {
-            panelDraw.Focus();
-        }
-                        
+                               
 
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
