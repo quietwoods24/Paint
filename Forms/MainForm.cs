@@ -298,7 +298,14 @@ namespace Paint
 
 
             int phi = (int)numericUpDownAngle.Value;
-            int sidecount = Convert.ToInt32((sender as Button).Tag);
+            int sidecount = 0;
+            if (sender is Button) { 
+                sidecount = Convert.ToInt32((sender as Button).Tag);
+            }
+            if (sender is ToolStripMenuItem)
+            {
+                sidecount = Convert.ToInt32((sender as ToolStripMenuItem).Tag);
+            }
 
             var figure = new Shape2D();
             if (1003 <= sidecount && sidecount <= 1006)

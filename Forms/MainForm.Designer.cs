@@ -50,6 +50,7 @@ namespace Paint
             this.buttonRectangle = new System.Windows.Forms.Button();
             this.buttonRegPentagon = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonTransparent = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -114,13 +115,16 @@ namespace Paint
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelControls.SuspendLayout();
             this.groupBoxShape.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAngle)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControls
@@ -296,6 +300,8 @@ namespace Paint
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.buttonTransparent);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button2);
@@ -333,6 +339,16 @@ namespace Paint
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Palette";
             this.groupBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(48, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 52);
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonTransparent
             // 
@@ -847,7 +863,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemTriangle.Name = "ToolStripMenuItemTriangle";
             this.ToolStripMenuItemTriangle.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemTriangle.Tag = "3";
+            this.ToolStripMenuItemTriangle.Tag = "1003";
             this.ToolStripMenuItemTriangle.Text = "&Add triangle";
             this.ToolStripMenuItemTriangle.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -855,7 +871,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemPentagon.Name = "ToolStripMenuItemPentagon";
             this.ToolStripMenuItemPentagon.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemPentagon.Tag = "5";
+            this.ToolStripMenuItemPentagon.Tag = "1005";
             this.ToolStripMenuItemPentagon.Text = "&Add pentagon";
             this.ToolStripMenuItemPentagon.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -863,7 +879,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemHexagon.Name = "ToolStripMenuItemHexagon";
             this.ToolStripMenuItemHexagon.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemHexagon.Tag = "6";
+            this.ToolStripMenuItemHexagon.Tag = "1006";
             this.ToolStripMenuItemHexagon.Text = "&Add hexagon";
             this.ToolStripMenuItemHexagon.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -871,7 +887,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemSquare.Name = "ToolStripMenuItemSquare";
             this.ToolStripMenuItemSquare.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemSquare.Tag = "4";
+            this.ToolStripMenuItemSquare.Tag = "1004";
             this.ToolStripMenuItemSquare.Text = "&Add square";
             this.ToolStripMenuItemSquare.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -879,6 +895,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemRectangle.Name = "ToolStripMenuItemRectangle";
             this.ToolStripMenuItemRectangle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemRectangle.Tag = "400";
             this.ToolStripMenuItemRectangle.Text = "&Add rectangle";
             this.ToolStripMenuItemRectangle.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -886,6 +903,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemCircle.Name = "ToolStripMenuItemCircle";
             this.ToolStripMenuItemCircle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemCircle.Tag = "900";
             this.ToolStripMenuItemCircle.Text = "&Add circle";
             this.ToolStripMenuItemCircle.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -893,6 +911,7 @@ namespace Paint
             // 
             this.ToolStripMenuItemLine.Name = "ToolStripMenuItemLine";
             this.ToolStripMenuItemLine.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemLine.Tag = "200";
             this.ToolStripMenuItemLine.Text = "&Add line";
             this.ToolStripMenuItemLine.Click += new System.EventHandler(this.AddFigure_Click);
             // 
@@ -1033,6 +1052,16 @@ namespace Paint
             this.buttonHelp.Click += new System.EventHandler(this.Help_Click);
             this.buttonHelp.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(123, 132);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 52);
+            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabStop = false;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.buttonNew;
@@ -1059,11 +1088,13 @@ namespace Paint
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAngle)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1148,6 +1179,8 @@ namespace Paint
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemCircle;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelete;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAbout;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
