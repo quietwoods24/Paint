@@ -142,7 +142,8 @@ namespace Paint
             }
             if (isZoomInPlace)
                 r *= zoomX;
-            else {
+            else
+            {
                 r *= zoomX;
                 x *= zoomX;
                 y *= zoomX;
@@ -150,6 +151,8 @@ namespace Paint
 
             RecountPoints();
         }
+
+
 
 
         public override string ToString()

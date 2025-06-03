@@ -88,19 +88,19 @@ namespace Paint
                 Console.WriteLine(errorMessage);
                 return;
             }
-                        
+
             if (isZoomInPlace)
-               diameter *= zoomX;
-            else {
+                diameter *= zoomX;
+            else
+            {
                 diameter *= zoomX;
                 x *= zoomX;
                 y *= zoomX;
             }
-           
+
 
             RecountPoints();
         }
-
 
         public override string ToString()
         {
@@ -118,8 +118,14 @@ namespace Paint
 
         public override bool MouseHover(double mouseX, double mouseY)
         {
-            return (x <= mouseX && mouseX <= x + diameter) &&
-                   (y <= mouseY && mouseY <= y + diameter);
+            // (x2 - x1)^2 + (y2 - y1)^2 = R^2
+            double R = diameter / 2;
+            double x1 = x + R;
+            double y1 = y + R;
+            double dx = mouseX - x1;
+            double dy = mouseY - y1;
+
+            return dx * dx + dy * dy <= R * R; 
         }
 
         public override void Draw(PaintEventArgs e)

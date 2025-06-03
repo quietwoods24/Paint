@@ -119,7 +119,7 @@ namespace Paint
                 w *= zoomX;
                 h *= zoomX;
             }
-            
+
             RecountPoints();
         }
 

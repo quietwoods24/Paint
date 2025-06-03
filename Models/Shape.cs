@@ -51,6 +51,7 @@ namespace Paint
 
         public abstract void Move(double xOffset, double yOffset);
         public abstract void Zoom(double zoomX, double zoomY, bool isZoomInPlace);
+
         public abstract void Draw(PaintEventArgs e);
 
 

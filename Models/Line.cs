@@ -87,6 +87,43 @@ namespace Paint
             RecountPoints();
         }
 
+        public void PointMove(double newX, double newY)
+        {
+            x2 = newX - clickdX;
+            y2 = newY - clickdY;
+
+            RecountPoints();
+        }
+
+        public override void StartMouseMove(double mouseX, double mouseY)
+        {
+            // Move point
+            if (PointMouseHover(mouseX, mouseY))
+            {
+                clickdX = mouseX - x2;
+                clickdY = mouseY - y2;
+            }
+            // Move whole line
+            else {
+                clickdX = mouseX - x1;
+                clickdY = mouseY - y1;
+            }
+        }
+
+        public override void MouseMoveTo(double newX, double newY)
+        {
+            if (PointMouseHover(newX, newY)) {
+                PointMove(newX, newY);
+            }
+            else
+                Move(newX - clickdX - x1, newY - clickdY - y1); ;
+        }
+
+        public bool PointMouseHover(double mouseX, double mouseY) {
+            double dx = mouseX - x2;
+            double dy = mouseY - y2;
+            return dx * dx + dy * dy <= Math.Pow((clickTolerance * 2), 2);
+        }
 
         public override void Zoom(double zoomX, double zoomY, bool isZoomInPlace = false)
         {
@@ -98,13 +135,21 @@ namespace Paint
                 return;
             }
 
-            x1 *= zoomX;
-            y1 *= zoomX;
-            x2 *= zoomX;
-            y2 *= zoomX;
+            if(isZoomInPlace) { 
+                x1 *= zoomX;
+                y1 *= zoomX;
+                x2 *= zoomX;
+                y2 *= zoomX;
+            }
+            else {
+                x2 *= zoomX;
+                y2 *= zoomY;
+            }
 
             RecountPoints();
         }
+
+        
 
 
         public override string ToString()

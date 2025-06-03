@@ -142,7 +142,11 @@ namespace Paint
                     float centerx = (float)(this as RegularPolygon).X - markerSize;
                     float centerY = (float)(this as RegularPolygon).Y - markerSize;
                     e.Graphics.DrawEllipse(penSelected, centerx, centerY, 2 * markerSize, 2 * markerSize);
-                }           
+                }
+                if (this is Line) {
+                    penSelected.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                    e.Graphics.DrawEllipse(penSelected, (int)Points[1].X - clickTolerance, (int)Points[1].Y - clickTolerance, clickTolerance * 2, clickTolerance * 2);
+                }
             }
         }
 

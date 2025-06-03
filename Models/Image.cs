@@ -172,8 +172,13 @@ namespace Paint
 
         public void MoveInside(double xOffset, double yOffset)
         {
-            if (SelectedShape != null)
-                SelectedShape.Move(xOffset, yOffset);
+            if (SelectedShape != null) { 
+                if (SelectedShape is Line) {
+                    (SelectedShape as Line).PointMove(xOffset, yOffset);
+                }
+                else
+                    SelectedShape.Move(xOffset, yOffset);
+            }
             else
                 foreach (Shape shape in shapes)
                     shape.Move(xOffset, yOffset);
@@ -190,13 +195,20 @@ namespace Paint
                 // throw new ArgumentOutOfRangeException(errorMessage);
                 return;
             }
+            if (zoomY <= 0)
+            {
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
+                Console.WriteLine(errorMessage);
+                // throw new ArgumentOutOfRangeException(errorMessage);
+                return;
+            }
 
             if (!isZoomInPlace)
             {
                 Width *= zoomX;
                 Height *= zoomX;
                 foreach (Shape shape in shapes)
-                    shape.Zoom(zoomX, zoomY, false);
+                    shape.Zoom(zoomX, 1, false);
                 Changed = true;
             }
             else {
@@ -207,6 +219,29 @@ namespace Paint
                         shape.Zoom(zoomX, zoomY, true);
                 Changed = true;
             }            
+        }
+
+        public void ZoomForRectangle(double zoomX, double zoomY) {
+            if (zoomX <= 0)
+            {
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
+                Console.WriteLine(errorMessage);
+                // throw new ArgumentOutOfRangeException(errorMessage);
+                return;
+            }
+            if (zoomY <= 0)
+            {
+                string errorMessage = $"ERROR: Zoom factor must be > 0: {zoomX}";
+                Console.WriteLine(errorMessage);
+                // throw new ArgumentOutOfRangeException(errorMessage);
+                return;
+            }
+            if (SelectedShape != null) { 
+                if (SelectedShape is RectangleMy)
+                    (SelectedShape as RectangleMy).Zoom(zoomX, zoomY, true);
+                if (SelectedShape is Line)
+                    (SelectedShape as Line).Zoom(zoomX, zoomY, true);
+            }
         }
 
 
@@ -246,6 +281,12 @@ namespace Paint
 
             if (e.Button == MouseButtons.Left && SelectedShape != null)
             {
+                if (SelectedShape is Line) {
+                    if ((SelectedShape as Line).PointMouseHover(e.X - X, e.Y - Y)) { 
+                        (SelectedShape as Line).PointMove(e.X - X, e.Y - Y);
+                        shapeMoved = true;
+                    }
+                }
                 if (SelectedShape.MouseHover(e.X - X, e.Y - Y))
                 {
                     SelectedShape.MouseMoveTo(e.X - X, e.Y - Y);
@@ -276,6 +317,15 @@ namespace Paint
             {
                 foreach (Shape shape in shapes)
                 {
+                    if (shape is Line)
+                    {
+                        if ((shape as Line).PointMouseHover(e.X - X, e.Y - Y))
+                        {
+                            (SelectedShape as Line).StartMouseMove(e.X - X, e.Y - Y);
+                            foundedClicked = true;
+                            break;
+                        }
+                    }
                     if (shape.MouseHover(e.X - X, e.Y - Y))
                     {
                         // The figure is not yet selected, select it
@@ -353,11 +403,11 @@ namespace Paint
                     break;
                 case 72: // "H"
                     if (insideImage)
-                        Zoom(1, e.Shift ? 0.9 : 1.1, true);
+                        ZoomForRectangle(1, e.Shift ? 0.9 : 1.1);
                     break;
                 case 87: // "W"
                     if (insideImage)
-                        Zoom(e.Shift ? 0.9 : 1.1, 1, true);
+                        ZoomForRectangle(e.Shift ? 0.9 : 1.1, 1);
                     break;
 
                 default:
